@@ -3,6 +3,7 @@ import jacquelynPhoto from './images/jacquelyn.jpg';
 import oliviaPhoto from './images/olivia.jpg';
 import paolaPhoto from './images/paola.png';
 import phoebePhoto from './images/phoebe.jpeg';
+import soojinPhoto from './images/soojin.jpg';
 
 function App() {
   return (
@@ -68,6 +69,22 @@ function App() {
           <li>
             <p>
               They are all excellent, creative and meditative. Old people have it right.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 className="yourName">Soo-Jin</h2>
+        <img src={soojinPhoto} alt="Soo-Jin" />
+        <ul>
+          <li>
+            <p className="about">
+              My main hobby that I do is K-pop dancing!
+            </p>
+          </li>
+          <li>
+            <p>
+              I participate in performing and also filmed a few dance covers.
             </p>
           </li>
         </ul>
