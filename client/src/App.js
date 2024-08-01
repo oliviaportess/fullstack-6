@@ -2,6 +2,7 @@ import './App.css';
 import jacquelynPhoto from './images/jacquelyn.jpg';
 import oliviaPhoto from './images/olivia.jpg';
 import paolaPhoto from './images/paola.png';
+import phoebePhoto from './images/phoebe.jpeg';
 
 function App() {
   return (
@@ -51,6 +52,22 @@ function App() {
           <li>
             <p>
               Experimenting with new recipes and flavors is a fantastic way to relax and feel creative.
+            </p>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <h2 className="yourName">Phoebe</h2>
+        <img src={phoebePhoto} alt="Phoebe" />
+        <ul>
+          <li>
+            <p className="about">
+              I have a series of old-person hobbies, including gardening, crocheting and crosswords.
+            </p>
+          </li>
+          <li>
+            <p>
+              They are all excellent, creative and meditative. Old people have it right.
             </p>
           </li>
         </ul>
