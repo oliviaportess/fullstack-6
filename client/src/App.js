@@ -73,6 +73,12 @@ function App() {
         </ul>
       </div>
     </div>
+  <div class="container">
+    <h1>About Me</h1>
+    <p>Hey there! I'm someone who finds joy in the little things. Playing the piano is my way of unwinding, whether it’s getting lost in a classical piece or just jamming out to something fun.</p>
+    <p>I'm a huge foodie. I love checking out new restaurants to find my next favorite dish. And when I'm not eating out, I'm probably in the kitchen trying to whip up something delicious myself.</p>
+    <p>Beyond food and music, I’m into photography. Snapping pics of cool places and moments is a hobby that keeps me exploring. I also love traveling; it’s awesome to see new places and experience different cultures.</p>
+</div>
   );
 }
 
