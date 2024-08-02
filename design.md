@@ -23,7 +23,7 @@ The landing page is simple, with a design similar to the start screen of an arca
 
 This page will incorporate the OpenTrivia API and instructions on how to use and generate a quiz.
 
-*Optional Share Quiz Link Page*
+***Optional Share Quiz Link Page***
 
 ![02a_Share Page](https://github.com/user-attachments/assets/0270bcd4-da34-4449-8a78-b3090a775e1d)
 
@@ -51,13 +51,13 @@ The illustration is a placeholder for the moment.
 
 This is the final page where the user can see both the scoreboard and their quiz results.
 
-*Optional About Page*
+***Optional About Page***
 
 ![01a_About Page](https://github.com/user-attachments/assets/0c455ac0-41e8-4fe6-ba04-a2a6f6c8a194)
 
 This page will have some information about the team.
 
-*Optional Login Page*
+***Optional Login Page***
 
 ![01b_Login Page](https://github.com/user-attachments/assets/1aabfc7c-84e9-4cf4-bbe2-57e91884b3e1)
 
