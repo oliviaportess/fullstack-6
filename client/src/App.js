@@ -94,11 +94,11 @@ function App() {
     </div>
   <div>
   <h2 className="yourName">Rayah Rahman</h2>
-  <img src={rayahPhoto} alt="Rayah" /> {/* Add your photo */}
+  <img src={rayahPhoto} alt="Rayah" /> 
   <ul>
     <li>
       <p className="about">
-        I love going to the gym and working out, my favourite thing to do in the gym is sprinting.
+        I adore going to the gym! I tend to go almost everyday first thing in the morning. My favourite thing to do in the gym is sprinting and lower body. I absoloutely detest doing core workouts.
       </p>
     </li>
     <li>
