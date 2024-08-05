@@ -4,6 +4,8 @@ import oliviaPhoto from './images/olivia.jpg';
 import paolaPhoto from './images/paola.png';
 import phoebePhoto from './images/phoebe.jpeg';
 import soojinPhoto from './images/soojin.jpg';
+import rayahPhoto from './images/rayah.jpg'; // Import your photo
+
 
 function App() {
   return (
@@ -89,7 +91,24 @@ function App() {
           </li>
         </ul>
       </div>
+      <div>
+        <h2 className="yourName">Rayah Rahman</h2>
+        <img src={rayahPhoto} alt="Rayah" />
+        <ul>
+          <li>
+            <p className="about">
+              I adore going to the gym! I tend to go almost every day first thing in the morning. My favourite thing to do in the gym is sprinting and lower body exercises. I absolutely detest doing core workouts.
+            </p>
+          </li>
+          <li>
+            <p>
+              I also love cooking and make lots of traditional Bengali food. I also enjoy knitting. I love to read and my favourite book is 'What's Mine and Yours' and I will read anything written by Sally Rooney!
+            </p>
+          </li>
+        </ul>
+      </div>
     </div>
+
   );
 }
 
