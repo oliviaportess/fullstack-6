@@ -36,6 +36,8 @@ app.get("/scoreboard", async(req, res) => {
       FROM
         scores s
         INNER JOIN users u ON s.user_id = u.user_id
+      ORDER BY s.score DESC
+      LIMIT 10
     `
     const [results] = await pool.query(sql)
     res.status(200).json(results)
