@@ -1,0 +1,32 @@
+.button-link {
+  font-family: "Press Start 2P";
+  color: #FBE22A;
+  font-size: 1.25rem;
+  padding: 0;
+  border: none;
+  background: none;
+}
+
+.button-link:hover{
+  color: #FB822A;
+  transition-duration: 1s;
+}
+
+.blinking {
+  animation: opacity 1s ease-in-out infinite;
+  opacity: 1;
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
