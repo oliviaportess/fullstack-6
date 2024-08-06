@@ -8,13 +8,13 @@ To create the tables, run the create_tables sql file.
 
 ## .env file
 
-Create a `.env` file
+Create a `.env` file using the .env.example file for example structure
 
-You will need to ensure that for `MYSQL_PASSWORD = password`, `password` matches your personal MySQL password.
+You will need to ensure that for `MYSQL_PASSWORD = `, is set to your personal MySQL password.
 
 ## Install dependencies
 
-Make sure your terminal is in the assignment-4-APIs folder.
+Make sure your terminal is in the server folder.
 
 To install dependencies, run the following command in the terminal:
 
