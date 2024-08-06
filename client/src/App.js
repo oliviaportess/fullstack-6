@@ -1,5 +1,5 @@
 import './App.css';
-import DisplayTeam from './team';
+import DisplayTeam from './components/team';
 
 function App() {
   return (
