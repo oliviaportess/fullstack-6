@@ -6,8 +6,9 @@ import MainHeading from './utils/MainHeading';
 function App() {
   return (
     <div className="App">
+      <MainHeading title="Welcome" />
       <DisplayTeam />
-      <Button text="START QUIZ"/>
+      <Button text="Start quiz"/>
     </div>
   );
 }
