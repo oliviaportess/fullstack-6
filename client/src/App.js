@@ -1,6 +1,7 @@
 import './App.css';
 import DisplayTeam from './team';
 import Button from './utils/Button';
+import MainHeading from './utils/MainHeading';
 
 function App() {
   return (
