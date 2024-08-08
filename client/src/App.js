@@ -1,10 +1,10 @@
-import './App.css';
+import "./App.css";
 
-import Button from './utils/Button';
-import MainHeading from './utils/MainHeading';
+import Button from "./components/Button";
+import MainHeading from "./components/MainHeading";
 
-import DisplayTeam from './utils/Team';
-import Navbar from './utils/Navbar';
+import DisplayTeam from "./components/Team";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
@@ -16,6 +16,6 @@ function App() {
 
     </div>
   );
-}
+};
 
 export default App;

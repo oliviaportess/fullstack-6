@@ -1,5 +1,5 @@
 import React from "react";
-import './MainHeading.css';
+import "./MainHeading.css";
 
 function MainHeading(props) {
   return (

@@ -1,11 +1,11 @@
 import React from "react";
-import '../App.css';
-import jacquelynPhoto from '../images/jacquelyn.jpg';
-import oliviaPhoto from '../images/olivia.jpg';
-import paolaPhoto from '../images/paola.png';
-import phoebePhoto from '../images/phoebe.jpeg';
-import soojinPhoto from '../images/soojin.jpg';
-import rayahPhoto from '../images/rayah.jpg';
+import "../App.css";
+import jacquelynPhoto from "../images/jacquelyn.jpg";
+import oliviaPhoto from "../images/olivia.jpg";
+import paolaPhoto from "../images/paola.png";
+import phoebePhoto from "../images/phoebe.jpeg";
+import soojinPhoto from "../images/soojin.jpg";
+import rayahPhoto from "../images/rayah.jpg";
 
 const teamMembers = [
   {

@@ -1,6 +1,6 @@
-import draftLogo from '../images/draftLogo.png'
-import NeonLink from './NeonLink';
-import './Navbar.css';
+import draftLogo from "../images/draftLogo.png";
+import NeonLink from "./NeonLink";
+import "./Navbar.css";
 
 const Navbar = () => { //arrow function is inputted by sfc
     return (
@@ -11,6 +11,6 @@ const Navbar = () => { //arrow function is inputted by sfc
             <NeonLink linkName="LOGIN" link="./LOGIN"/>
         </nav>
       );
-}
- 
+};
+
 export default Navbar;
