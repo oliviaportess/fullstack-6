@@ -1,4 +1,5 @@
 import './App.css';
+import Button from './utils/Button';
 import DisplayTeam from './utils/Team';
 import Navbar from './utils/Navbar';
 
@@ -7,6 +8,7 @@ function App() {
     <div className="App">
       <Navbar />
       <DisplayTeam />
+      <Button text="START QUIZ"/>
     </div>
   );
 }

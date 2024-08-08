@@ -1,9 +1,12 @@
 import React from "react";
+import './Button.css';
 
-function Button() {
+function Button(props) {
     return (
-       <button>A button!</button>
-    )
-}
+       <button className="button-link">
+          <span className="blinking">{">"}</span> {props.text}
+      </button>
+    );
+};
 
 export default Button;
