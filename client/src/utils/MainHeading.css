@@ -1,0 +1,8 @@
+.heading-gradient {
+  font-family: "Press Start 2P";
+  font-size: 2.25rem;
+  text-transform: uppercase;
+  background: linear-gradient(to bottom, #FBE22A, #FB822A);
+  color: transparent;
+  background-clip: text;
+}
