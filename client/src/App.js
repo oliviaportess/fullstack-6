@@ -14,8 +14,7 @@ function App() {
       <Navbar />
       <MainHeading title="Welcome" />
       <DisplayTeam />
-      <Button text="Start quiz"/>
-
+      <Button text="Start quiz" />
     </div>
   );
 }

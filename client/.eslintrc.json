@@ -7,7 +7,8 @@
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "plugin:react-hooks/recommended",
+    "plugin:prettier/recommended"
   ],
   "parserOptions": {
     "ecmaVersion": 12,
@@ -20,6 +21,11 @@
     "react",
     "react-hooks"
   ],
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
   "rules": {
     // Turn off default type definition for props
     "react/prop-types": "off"
