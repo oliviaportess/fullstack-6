@@ -12,6 +12,6 @@ function AnswerOptions(props) {
       ))}
     </ul>
   );
-};
+}
 
 export default AnswerOptions;

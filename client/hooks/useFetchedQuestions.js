@@ -1,7 +1,6 @@
-import React from "react";
 import { useState, useEffect } from "react";
 
-const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`;
+// const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`;
 
 const useFetchedQuestions = (url) => {
     const [data, setData] = useState([]);

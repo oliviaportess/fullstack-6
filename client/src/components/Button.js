@@ -7,6 +7,6 @@ function Button(props) {
           <span className="blinking">{">"}</span> {props.text}
       </button>
     );
-};
+}
 
 export default Button;

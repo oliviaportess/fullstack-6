@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./NeonLink.css";
 
 const NeonLink = (props) => {
