@@ -1,23 +1,23 @@
 nav {
-    padding: 10px;
-    display: flex;
-    align-items: center;
-    max-width: 1400px;
-    margin: 0 auto;
-    box-shadow: 0 5px 2px -2px #6dfcfe;
-    flex-wrap: wrap
-  }
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+  box-shadow: 0 5px 2px -2px #6dfcfe;
+  flex-wrap: wrap;
+}
 
-  nav :nth-last-child(2){
-    margin-left: auto;
-  }
+nav :nth-last-child(2) {
+  margin-left: auto;
+}
 
-  nav img {
-    height: 60px;
-    border-radius: 0%;
-  }
+nav img {
+  height: 60px;
+  border-radius: 0%;
+}
 
-  /*
+/*
   .RHSNav {
     display: flex;
     align-items: center;
