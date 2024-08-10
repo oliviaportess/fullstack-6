@@ -1,3 +1,5 @@
+import React from "react";
+
 import "./App.css";
 
 import Button from "./components/Button";
@@ -12,10 +14,9 @@ function App() {
       <Navbar />
       <MainHeading title="Welcome" />
       <DisplayTeam />
-      <Button text="Start quiz"/>
-
+      <Button text="Start quiz" />
     </div>
   );
-};
+}
 
 export default App;
