@@ -7,7 +7,7 @@ function LandingPage() {
   return (
     <div className="container">
       <Navbar />
-      <MainHeading title="Welcom to" />
+      <MainHeading title="Welcome to" />
       <Button text="Let's get quizzing!" />
     </div>
   );
