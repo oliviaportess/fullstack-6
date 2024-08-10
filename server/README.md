@@ -29,3 +29,19 @@ To start the server, run the following command in the terminal:
 ```
 npm start
 ```
+
+### Run lint check
+
+To run the ESLint dependency to check for lint errors, run the following command in the terminal:
+
+```
+npm run lint
+```
+
+### Run lint fix
+
+To run the ESLint dependency to automatically fix lint errors, run the following command in the terminal:
+
+```
+npm run lint-fix
+```
