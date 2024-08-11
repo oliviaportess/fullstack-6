@@ -1,0 +1,28 @@
+.team-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+}
+
+.team-member {
+  flex-basis: 20%;
+  margin: 30px 0;
+  text-align: center;
+}
+
+.yourName {
+  font-size: 1.2rem;
+  margin-bottom: 8px;
+  text-decoration: underline;
+}
+
+.member-image {
+  height: 180px;
+  width: 180px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  box-shadow: 8px 8px 20px #17072D;
+}

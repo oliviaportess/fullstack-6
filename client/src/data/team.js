@@ -1,5 +1,3 @@
-import React from "react";
-import "../App.css";
 import jacquelynPhoto from "../images/jacquelyn.jpg";
 import oliviaPhoto from "../images/olivia.jpg";
 import paolaPhoto from "../images/paola.png";
@@ -7,7 +5,7 @@ import phoebePhoto from "../images/phoebe.jpeg";
 import soojinPhoto from "../images/soojin.jpg";
 import rayahPhoto from "../images/rayah.jpg";
 
-const teamMembers = [
+const TEAM = [
   {
     name: "Jacquelyn",
     photo: jacquelynPhoto,
@@ -67,25 +65,4 @@ const teamMembers = [
   },
 ];
 
-const DisplayTeam = () => {
-  return (
-    <>
-      <h1>Team Introduction</h1>
-      {teamMembers.map((member, index) => (
-        <div key={index}>
-          <h2 className="yourName">{member.name}</h2>
-          <img src={member.photo} alt={member.name} />
-          <ul>
-            {member.hobbies.map((hobby, index) => (
-              <li key={index}>
-                <p className="about">{hobby}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </>
-  );
-};
-
-export default DisplayTeam;
+export default TEAM;
