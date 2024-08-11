@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./LandingPage.css";
 
 import Navbar from "../components/Navbar";
@@ -8,6 +8,21 @@ import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
 function LandingPage() {
+  const [playerName, setPlayerName] = useState("");
+  const [inputValue, setInputValue] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
+    setPlayerName(submittedName);
+    setInputValue("");
+    console.log(submittedName);
+  }
+
+  function handleChange(event) {
+    setInputValue(event.target.value);
+  }
+
   return (
     <div className="container">
       <Navbar />
@@ -16,7 +31,7 @@ function LandingPage() {
         <div className="content">
           <MainHeading title="Welcome to" />
           <MainHeading className="gradient-pink" title="Quiz App" />
-          <div id="name-form">
+          <form id="name-form" onSubmit={handleSubmit}>
             <label htmlFor="player-name">
               <MainHeading className="heading-small" title="Enter Name" />
             </label>
@@ -24,11 +39,15 @@ function LandingPage() {
               type="text"
               id="player-name"
               placeholder="Write your name"
-              className="form-input-box"
+              className="form-input-field"
+              onChange={handleChange}
             ></input>
             <Button type="submit" text="Submit" className="grey" />
-          </div>
-          <Button text="Let's get quizzing!" className="big-font" />
+          </form>
+          <Button
+            text={`Let's get quizzing ${playerName}!`}
+            className="big-font"
+          />
         </div>
       </div>
     </div>
