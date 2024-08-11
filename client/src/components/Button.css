@@ -1,6 +1,6 @@
 .button-link {
   font-family: "Press Start 2P";
-  color: #FBE22A;
+  color: #fbe22a;
   font-size: 1.25rem;
   text-transform: uppercase;
   padding: 0;
@@ -8,8 +8,8 @@
   background: none;
 }
 
-.button-link:hover{
-  color: #FB822A;
+.button-link:hover {
+  color: #fb822a;
   transition-duration: 1s;
 }
 
@@ -24,10 +24,23 @@
   }
 
   50% {
-    opacity: 0
+    opacity: 0;
   }
 
   100% {
     opacity: 1;
   }
+}
+
+.grey {
+  color: #cbc6ef;
+}
+
+.grey:hover {
+  color: #a390ca;
+  transition-duration: 0.5s;
+}
+
+.big-font {
+  font-size: 1.75rem;
 }
