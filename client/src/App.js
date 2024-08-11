@@ -7,8 +7,8 @@ import MainHeading from "./components/MainHeading";
 import BackgroundScreen from "./components/BackgroundScreen";
 import gridImage from "./images/grid.png";
 
-import DisplayTeam from "./components/Team";
 import Navbar from "./components/Navbar";
+import About from "./components/About";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
       <Navbar />
       <BackgroundScreen url={gridImage} />
       <MainHeading title="Welcome" />
-      <DisplayTeam />
+      <About />
       <Button text="Start quiz" />
     </div>
   );
