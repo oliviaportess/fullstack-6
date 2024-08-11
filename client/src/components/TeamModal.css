@@ -1,0 +1,38 @@
+.modal {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    right: auto;
+    bottom: auto;
+    margin-right: -50%; 
+    transform: translate(-50%, -50%);
+    background: #33105E;
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+    outline: none;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.75);
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    list-style: none;
+    font-weight: 500;
+  }
+
+  p {
+    display: inline;
+  } 
