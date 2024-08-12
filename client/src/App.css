@@ -1,22 +1,2 @@
- .App {
-  text-align: center;
-}
 
-.yourName {
-  text-decoration: underline;
-}
-
-img {
-  height: 150px;
-  border-radius: 50%;
-}
-
-li {
-  list-style-position: inside;
-  padding: 4px;
-}
-
-p {
-  display: inline;
-} 
 
