@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import LandingPage from "./pages/LandingPage";
+import About from "./components/About";
 
 // import Button from "./components/Button";
 // import MainHeading from "./components/MainHeading";
@@ -17,6 +18,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Router>
     </div>
