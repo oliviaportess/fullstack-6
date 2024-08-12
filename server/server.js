@@ -7,9 +7,20 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const tenQuestions = require("./api/tenQuestions")
+
+app.get('/api/search/', async (req, res) => {
+  const questions = await tenQuestions.search()
+  console.log(questions)
+  res.json(questions)
+}
+)
+
+/*
 app.use((req, res) => {
   res.status(200).send("Hi");
 });
+*/
 
 app.get("/users", async (req, res) => {
   try {
