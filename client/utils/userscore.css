@@ -1,0 +1,54 @@
+/* UserScore.css */
+
+.scoreboard {
+    background-color: #4e00a3;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+    color: #ffea00;
+}
+
+h2 {
+    margin: 0;
+    font-size: 24px;
+}
+
+.score-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+.score-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    font-size: 18px;
+    border-bottom: 1px solid #ffea00;
+}
+
+.user-score {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
+.user-score .score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.back-button {
+    background-color: #ffea00;
+    color: #4e00a3;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #ffea66;
+}
