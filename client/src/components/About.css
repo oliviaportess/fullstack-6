@@ -3,26 +3,37 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-  padding: 20px;
-  gap: 20px;
+  width: 80%;
+  column-gap: 20px;
 }
 
 .team-member {
   flex-basis: 20%;
   margin: 30px 0;
   text-align: center;
+  cursor: pointer;
 }
 
 .yourName {
   font-size: 1.2rem;
   margin-bottom: 8px;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .member-image {
-  height: 180px;
   width: 180px;
+  height: 180px;
   object-fit: cover;
   margin-bottom: 10px;
-  box-shadow: 8px 8px 20px #17072D;
+  box-shadow: 8px 8px 20px #17072d;
+  border-radius: 50%;
+}
+
+.button-position {
+  position: absolute;
+  right: 320px;
+  bottom: 70px;
+  cursor: pointer;
+  text-align: center;
+  z-index: 1;
 }

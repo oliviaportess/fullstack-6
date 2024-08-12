@@ -6,10 +6,10 @@ body {
   background: linear-gradient(to right bottom, #17072d, #33105e, #50176e);
   background-repeat: no-repeat;
   background-size: cover;
+  color: #e1ddff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
-
