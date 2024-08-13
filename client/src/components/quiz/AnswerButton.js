@@ -1,14 +1,11 @@
 import React from "react";
-import { useSelector } from "react-redux";
 
 import "./AnswerButton.css";
 
-function AnswerButton({ onSelectAnswer, text, cssStyles }) {
-  const answerState = useSelector((state) => state.quiz.answerState);
-
+function AnswerButton({ onSelectAnswer, text, cssStyles, disabled }) {
   return (
     <button
-      disabled={answerState !== ""}
+      disabled={disabled}
       onClick={onSelectAnswer}
       className={(".", cssStyles)}
     >
