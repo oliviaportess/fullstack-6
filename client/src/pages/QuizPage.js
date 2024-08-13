@@ -16,6 +16,7 @@ function QuizPage() {
         <div className="content">
           <MainHeading title="Question Number Placeholder" />
           <FetchQuestion />
+          <div>Questions Placeholder</div>
           <div>Answers Placeholder</div>
           <Button text={"Next question"} className="big-font" />
         </div>
