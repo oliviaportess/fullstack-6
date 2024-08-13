@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialQuizState = {
   activeQuestionIndex: 0,
+  answerState: "",
 };
 
 const quizSlice = createSlice({
@@ -10,6 +11,15 @@ const quizSlice = createSlice({
   reducers: {
     incrementActiveQuestionIndex(state) {
       state.activeQuestionIndex++;
+    },
+    unansweredAnswerState(state) {
+      state.answerState = "";
+    },
+    correctAnswerState(state) {
+      state.answerState = "correct";
+    },
+    wrongAnswerState(state) {
+      state.answerState = "wrong";
     },
   },
 });
