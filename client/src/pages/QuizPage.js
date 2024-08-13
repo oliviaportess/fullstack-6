@@ -3,6 +3,7 @@ import BackgroundScreen from "../components/BackgroundScreen";
 import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
 import gridImage from "../images/grid.png";
+import FetchQuestion from "../components/quiz/FetchQuestion";
 
 function QuizPage() {
 
@@ -13,7 +14,7 @@ function QuizPage() {
         <BackgroundScreen url={gridImage} />
         <div className="content">
           <MainHeading title="Question Number Placeholder" />
-          <div>Question placeholder</div>
+          <FetchQuestion />
           <div>Answers Placeholder</div>
           <Button
             text={"Next question"}
