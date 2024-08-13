@@ -9,8 +9,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const fetchQuestion = require("./api/fetchQuestion");
 app.get("/api/search/", async (req, res) => {
-  const questions = await fetchQuestion.search();
-  res.json(questions);
+  const allQuestions = await fetchQuestion.search();
+  res.json(allQuestions);
 });
 
 app.use((req, res) => {
