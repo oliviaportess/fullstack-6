@@ -8,6 +8,6 @@ const FetchQuestion = () => {
   };
 
   return <button onClick={performSearch}>Fetch Questions</button>;
-}
+};
 
 export default FetchQuestion;
