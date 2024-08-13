@@ -7,6 +7,13 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+const fetchQuestion = require("./api/fetchQuestion")
+app.get("/api/search/", async (req, res) => {
+  const questions = await fetchQuestion.search()
+  res.json(questions)
+}
+)
+
 app.use((req, res) => {
   res.status(200).send("Hi");
 });
