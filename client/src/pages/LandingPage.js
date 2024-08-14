@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+
 import "./LandingPage.css";
 
 import Navbar from "../components/Navbar";
@@ -16,11 +17,16 @@ function LandingPage() {
     const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
     setPlayerName(submittedName);
     setInputValue("");
-    console.log(submittedName);
+    // console.log(submittedName);
   }
 
   function handleChange(event) {
     setInputValue(event.target.value);
+  }
+
+  function handleClick(event) {
+    event.preventDefault();
+    window.location.href = "/instructions";
   }
 
   return (
@@ -46,6 +52,8 @@ function LandingPage() {
           </form>
           <Button
             text={`Let's get quizzing ${playerName}!`}
+            type="link"
+            onClick={handleClick}
             className="big-font"
           />
         </div>

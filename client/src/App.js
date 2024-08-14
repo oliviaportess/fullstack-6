@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import LandingPage from "./pages/LandingPage";
-import About from "./components/About";
+import AboutPage from "./pages/AboutPage";
+import InstructionsPage from "./pages/InstructionsPage";
 import QuizPage from "./pages/QuizPage";
 
 // import Button from "./components/Button";
@@ -19,7 +20,8 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/instructions" element={<InstructionsPage />} />
           <Route path="/quiz" element={<QuizPage />} />
         </Routes>
       </Router>
