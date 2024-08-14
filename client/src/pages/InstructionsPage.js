@@ -22,31 +22,33 @@ function InstructionsPage() {
             <div className="instructions">
               <MainHeading title="Instructions" className="heading-small" />
               <ol>
-                <li>
+                <li className="list-instructions">
+                  <p>Use the form on the right to generate your own quiz</p>
+                </li>
+                <br></br>
+                <li className="list-instructions">
                   <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                    Select the number of questions (between 5 and 20), the
+                    category, difficulty, and the type of quiz you would like to
+                    play
                   </p>
                 </li>
-                <li>
-                  <p>
-                    Donec a nunc gravida, mollis ipsum in, condimentum erat.
-                  </p>
-                </li>
-                <li>
-                  <p>Nam id justo lacinia, aliquet mauris sed, auctor neque.</p>
+                <br></br>
+                <li className="list-instructions">
+                  <p>Press Submit then Start the Quiz!</p>
                 </li>
               </ol>
             </div>
             <QuizForm />
           </div>
-          <div className="nav-links">
-            <Link to="/">
-              <Button text="Back" className="grey" />
-            </Link>
-            <Link to="/quiz">
-              <Button text="Generate Quiz" />
-            </Link>
-          </div>
+        </div>
+        <div className="nav-links">
+          <Link to="/">
+            <Button text="Back" className="grey" />
+          </Link>
+          <Link to="/quiz">
+            <Button text="Start Quiz" />
+          </Link>
         </div>
       </div>
     </div>

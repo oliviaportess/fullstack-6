@@ -3,11 +3,11 @@ import React, { useState } from "react";
 import "./QuizForm.css";
 
 import Button from "../Button";
-
 function QuizForm() {
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
+  const [type, setType] = useState("");
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -32,7 +32,7 @@ function QuizForm() {
           onChange={(event) => setNumberOfQuestions(event.target.value)}
         ></input>
         <label htmlFor="quiz-category" className="quiz-label">
-          Select Category
+          Category
         </label>
         <select
           id="quiz-category"
@@ -67,7 +67,7 @@ function QuizForm() {
           <option value="32">Entertainment: Cartoons & Animations</option>
         </select>
         <label htmlFor="quiz-difficulty" className="quiz-label">
-          Select Difficulty
+          Difficulty
         </label>
         <select
           id="quiz-category"
@@ -79,6 +79,19 @@ function QuizForm() {
           <option value="easy">Easy</option>
           <option value="medium">Medium</option>
           <option value="hard">Hard</option>
+        </select>
+        <label htmlFor="quiz-type" className="quiz-label">
+          Type
+        </label>
+        <select
+          id="quiz-type"
+          className="quiz-form-input"
+          value={type}
+          onChange={(event) => setType(event.target.value)}
+        >
+          <option value="any">Any Type</option>
+          <option value="multiple">Multiple Choice</option>
+          <option value="boolean">True or False</option>
         </select>
       </div>
       <Button type="submit" text="Submit" className="grey quiz-button" />

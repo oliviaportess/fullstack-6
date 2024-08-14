@@ -2,17 +2,31 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 60px 0;
+  margin: 54px 0 40px 0;
 }
 
-#quiz-form {
+.instructions {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 160px;
 }
 
-.nav-links > button {
+.list-instructions {
+  list-style: decimal;
+  list-style-position: outside;
+  text-align: left;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+.nav-links {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 60%;
 }
