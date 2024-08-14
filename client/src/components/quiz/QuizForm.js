@@ -9,9 +9,8 @@ function QuizForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log(numberOfQuestions);
-    console.log(category);
-    console.log(difficulty);
+    const quizSettings = { numberOfQuestions, category, difficulty };
+    console.log(quizSettings);
   }
 
   return (
@@ -23,13 +22,14 @@ function QuizForm() {
         min="5"
         max="20"
         placeholder="10"
-        className="form-input-field"
+        className="quiz-form-input-field"
         value={numberOfQuestions}
         onChange={(event) => setNumberOfQuestions(event.target.value)}
       ></input>
       <label htmlFor="quiz-category">Select Category</label>
       <select
         id="quiz-category"
+        className="quiz-form-drop-down"
         value={category}
         onChange={(event) => setCategory(event.target.value)}
       >
@@ -62,6 +62,7 @@ function QuizForm() {
       <label htmlFor="quiz-difficulty">Select Difficulty</label>
       <select
         id="quiz-category"
+        className="quiz-form-drop-down"
         value={difficulty}
         onChange={(event) => setDifficulty(event.target.value)}
       >
