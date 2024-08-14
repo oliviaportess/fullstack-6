@@ -1,0 +1,11 @@
+.instructions-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.nav-links > button {
+  display: flex;
+  justify-content: space-between;
+}
