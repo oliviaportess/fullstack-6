@@ -12,6 +12,7 @@ function QuizForm() {
   function handleSubmit(event) {
     event.preventDefault();
     const quizSettings = { numberOfQuestions, category, difficulty };
+    alert("Submitted");
     console.log(quizSettings);
   }
 
