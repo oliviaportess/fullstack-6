@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import TEAM from "../data/team";
 import Modal from "react-modal";
-import TeamModal from "./TeamModal";
-import MainHeading from "./MainHeading";
-import BackgroundScreen from "./BackgroundScreen";
-import Navbar from "./Navbar";
-import "./About.css";
+import TeamModal from "../components/TeamModal";
+import MainHeading from "../components/MainHeading";
+import BackgroundScreen from "../components/BackgroundScreen";
+import Navbar from "../components/Navbar";
+import "./AboutPage.css";
 import gridImage from "../images/grid.png";
-import Button from "./Button";
+import Button from "../components/Button";
 
 Modal.setAppElement("#root");
 
-const About = () => {
+const AboutPage = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
 
@@ -61,4 +61,4 @@ const About = () => {
   );
 };
 
-export default About;
+export default AboutPage;

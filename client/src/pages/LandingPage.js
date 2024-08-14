@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+
 import "./LandingPage.css";
 
 import Navbar from "../components/Navbar";
@@ -16,7 +18,7 @@ function LandingPage() {
     const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
     setPlayerName(submittedName);
     setInputValue("");
-    console.log(submittedName);
+    // console.log(submittedName);
   }
 
   function handleChange(event) {
@@ -44,10 +46,13 @@ function LandingPage() {
             ></input>
             <Button type="submit" text="Submit" className="grey" />
           </form>
-          <Button
-            text={`Let's get quizzing ${playerName}!`}
-            className="big-font"
-          />
+          <Link to="/instructions">
+            <Button
+              text={`Let's get quizzing ${playerName}!`}
+              type="link"
+              className="big-font"
+            />
+          </Link>
         </div>
       </div>
     </div>
