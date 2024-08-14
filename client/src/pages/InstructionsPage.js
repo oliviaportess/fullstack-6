@@ -6,6 +6,7 @@ import "./InstructionsPage.css";
 import Navbar from "../components/Navbar";
 import BackgroundScreen from "../components/BackgroundScreen";
 import MainHeading from "../components/MainHeading";
+import QuizForm from "../components/quiz/QuizForm";
 import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
@@ -36,7 +37,7 @@ function InstructionsPage() {
                 </li>
               </ol>
             </div>
-            <form></form>
+            <QuizForm />
           </div>
           <div className="nav-links">
             <Link to="/">
