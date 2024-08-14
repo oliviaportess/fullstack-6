@@ -1,8 +1,9 @@
 // search for 10 random questions
 
-const axios = require("axios"); //require axios for request so need to install
+const axios = require("axios");
 
-const fetchQuestion = {//imported from postman (node.js axios)
+const fetchQuestion = {
+  //imported from postman (node.js axios)
   search: async () => {
     const config = {
       method: "get",
@@ -15,17 +16,22 @@ const fetchQuestion = {//imported from postman (node.js axios)
       const response = await axios.request(config);
       const results = response.data.results;
       const allQuestions = [];
-      for (let i=0;i<results.length;i++){
+      for (let i = 0; i < results.length; i++) {
         const question = results[i].question;
         const correctAnswer = results[i].correct_answer;
-        const answerOptions = results[i].incorrect_answers.concat(correctAnswer) //grabbing all answer options into one array
+        const answerOptions = [
+          correctAnswer, //using spread method to combine correct answer string and array of incorrect answers
+          ...results[i].incorrect_answers,
+        ].sort(() => Math.random() - 0.5); //returns a random positive or negative number for each comparison in the array so the sort method randomly sorts the array
         allQuestions.push({
-          id:(i+1),
+          //Note: the structure of this object can change if needed in the FE
+          id: i + 1,
           question: question,
-          answerOptions: answerOptions
-        })
+          answerOptions: answerOptions,
+          correctAnswer: correctAnswer,
+        });
       }
-      return allQuestions; //returns an array of objects, each object is for one 'question' and contains the question number, question, and answers
+      return allQuestions;
     } catch (error) {
       console.log(error);
     }

@@ -7,12 +7,14 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+//api call endpoint
 const fetchQuestion = require("./api/fetchQuestion");
 app.get("/api/search/", async (req, res) => {
   const allQuestions = await fetchQuestion.search();
   res.json(allQuestions);
 });
 
+//database endpoints
 app.use((req, res) => {
   res.status(200).send("Hi");
 });
