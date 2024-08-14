@@ -1,19 +1,38 @@
-import React from "react";
+import React, { useState } from "react";
+
+import Button from "../Button";
 
 function QuizForm() {
+  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
+  const [category, setCategory] = useState("");
+  const [difficulty, setDifficulty] = useState("");
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log(numberOfQuestions);
+    console.log(category);
+    console.log(difficulty);
+  }
+
   return (
-    <form id="quiz-form">
+    <form id="quiz-form" onSubmit={handleSubmit}>
       <label htmlFor="quiz-amount">No. of Questions</label>
       <input
         type="number"
         id="quiz-amount"
-        min="1"
-        max="50"
+        min="5"
+        max="20"
         placeholder="10"
         className="form-input-field"
+        value={numberOfQuestions}
+        onChange={(event) => setNumberOfQuestions(event.target.value)}
       ></input>
       <label htmlFor="quiz-category">Select Category</label>
-      <select>
+      <select
+        id="quiz-category"
+        value={category}
+        onChange={(event) => setCategory(event.target.value)}
+      >
         <option value="any">Any Category</option>
         <option value="9">General Knowledge</option>
         <option value="10">Entertainment: Books</option>
@@ -41,12 +60,17 @@ function QuizForm() {
         <option value="32">Entertainment: Cartoons & Animations</option>
       </select>
       <label htmlFor="quiz-difficulty">Select Difficulty</label>
-      <select>
+      <select
+        id="quiz-category"
+        value={difficulty}
+        onChange={(event) => setDifficulty(event.target.value)}
+      >
         <option value="any">Any Difficulty</option>
         <option value="easy">Easy</option>
         <option value="medium">Medium</option>
         <option value="hard">Hard</option>
       </select>
+      <Button type="submit" text="Submit" className="grey" />
     </form>
   );
 }
