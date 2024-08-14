@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 import "./LandingPage.css";
 
@@ -24,11 +25,6 @@ function LandingPage() {
     setInputValue(event.target.value);
   }
 
-  function handleClick(event) {
-    event.preventDefault();
-    window.location.href = "/instructions";
-  }
-
   return (
     <div className="container">
       <Navbar />
@@ -50,12 +46,13 @@ function LandingPage() {
             ></input>
             <Button type="submit" text="Submit" className="grey" />
           </form>
-          <Button
-            text={`Let's get quizzing ${playerName}!`}
-            type="link"
-            onClick={handleClick}
-            className="big-font"
-          />
+          <Link to="/instructions">
+            <Button
+              text={`Let's get quizzing ${playerName}!`}
+              type="link"
+              className="big-font"
+            />
+          </Link>
         </div>
       </div>
     </div>
