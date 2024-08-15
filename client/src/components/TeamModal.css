@@ -32,12 +32,12 @@
   border-radius: 50%;
 }
 
-ul {
+.hobbies-list {
   margin-bottom: 50px;
   padding: 0;
 }
 
-li {
+.hobby-item {
   list-style: none;
   font-weight: 500;
   margin: 30px 20px;
