@@ -82,7 +82,7 @@ function QuizPage() {
       <Navbar />
       <div className="layout-container">
         <BackgroundScreen url={gridImage} />
-        {isFetching && <p>Fetching the quiz from the API...</p>};
+        {isFetching && <p>Fetching the quiz from the API...</p>}
         {!isFetching && (
           <div className="content">
             <MainHeading

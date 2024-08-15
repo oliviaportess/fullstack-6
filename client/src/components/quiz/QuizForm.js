@@ -1,19 +1,25 @@
 import React, { useState } from "react";
 
 import "./QuizForm.css";
-
 import Button from "../Button";
-function QuizForm({ submitQuizForm }) {
-  const [numberOfQuestions, setNumberOfQuestions] = useState(0);
-  const [category, setCategory] = useState("");
-  const [difficulty, setDifficulty] = useState("");
-  const [type, setType] = useState("");
+
+function QuizForm({ onSubmit }) {
+  const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
+  const [category, setCategory] = useState("any");
+  const [difficulty, setDifficulty] = useState("any");
+  const [type, setType] = useState("any");
 
   function handleSubmit(event) {
     event.preventDefault();
-    const quizSettings = { numberOfQuestions, category, difficulty, type };
+    const quizSettings = {
+      numberOfQuestions,
+      category: category === "any" ? "" : category,
+      difficulty: difficulty === "any" ? "" : difficulty,
+      type: type === "any" ? "" : type,
+    };
     alert("Submitted");
-    submitQuizForm(quizSettings);
+    // console.log(quizSettings);
+    onSubmit(quizSettings);
   }
 
   return (
