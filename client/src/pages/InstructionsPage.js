@@ -14,12 +14,9 @@ import QuizForm from "../components/quiz/QuizForm";
 import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
-// https://opentdb.com/api.php?amount=10
-// https://localhost:3000/api/search/?amount=10&category=&difficulty=&type=
-// https://opentdb.com/api.php?amount=10&category=26&difficulty=hard&type=boolean
-
 function InstructionsPage() {
   const dispatch = useDispatch();
+  // const performSearch = async (quizSettings) => {
   const performSearch = async () => {
     // const query = new URLSearchParams({
     //   amount: quizSettings.numberOfQuestions,
@@ -29,15 +26,22 @@ function InstructionsPage() {
     // }).toString();
 
     dispatch(apiActions.trueIsFetching());
-    const result = await fetch(`/api/search`);
+    // Change search params
+    // const result = await fetch(`/api/search/?${query}`);
+    const result = await fetch(`/api/search/`);
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
     dispatch(apiActions.falseIsFetching());
   };
 
-  function handleFormSubmit(quizSettings) {
-    performSearch(quizSettings);
+  function handleFormSubmit() {
+    performSearch();
   }
+
+  // perform search using quizSettings?
+  // function handleFormSubmit(quizSettings) {
+  //   performSearch(quizSettings);
+  // }
 
   return (
     <div className="container">
