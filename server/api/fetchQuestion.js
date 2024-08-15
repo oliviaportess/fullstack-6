@@ -9,7 +9,7 @@ const fetchQuestion = {
       method: "get",
       maxBodyLength: Infinity,
       url: "https://opentdb.com/api.php?amount=10",
-      headers: {},
+      headers: { "Access-Control-Allow-Origin": "*" },
     };
 
     try {

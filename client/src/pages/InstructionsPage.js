@@ -1,4 +1,8 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+
+import { quizActions } from "../components/quiz/quizReducer.js";
 
 import Navbar from "../components/Navbar";
 import BackgroundScreen from "../components/BackgroundScreen";
@@ -7,7 +11,17 @@ import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
 function InstructionsPage() {
-  function handleClick() {}
+  const dispatch = useDispatch();
+
+  const performSearch = async () => {
+    const result = await fetch("/api/search/");
+    const jsonResponse = await result.json();
+    dispatch(quizActions.saveQuestions(jsonResponse));
+  };
+
+  function handleClick() {
+    performSearch();
+  }
 
   return (
     <div className="container">
@@ -16,7 +30,9 @@ function InstructionsPage() {
         <BackgroundScreen url={gridImage} />
         <div className="content">
           <MainHeading title="How to Play" />
-          <Button text="Generate Quiz" onClick={handleClick} />
+          <Link to="/quiz">
+            <Button text="Generate Quiz" type="link" onClick={handleClick} />
+          </Link>
         </div>
       </div>
     </div>
