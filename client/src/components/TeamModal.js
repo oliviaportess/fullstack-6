@@ -16,9 +16,9 @@ const TeamModal = ({ isOpen, member, onRequestClose }) => {
         <>
           <h2 className={`main-heading heading-small`}>{member.name}</h2>
           <img src={member.photo} alt={member.name} className="modal-image" />
-          <ul>
+          <ul className="hobbies-list">
             {member.hobbies.map((hobby, index) => (
-              <li key={index}>
+              <li key={index} className="hobby-item">
                 <p>{hobby}</p>
               </li>
             ))}
