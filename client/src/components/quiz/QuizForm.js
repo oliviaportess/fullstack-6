@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./QuizForm.css";
 
 import Button from "../Button";
-function QuizForm() {
+function QuizForm({ submitQuizForm }) {
   const [numberOfQuestions, setNumberOfQuestions] = useState(0);
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
@@ -11,9 +11,9 @@ function QuizForm() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const quizSettings = { numberOfQuestions, category, difficulty };
+    const quizSettings = { numberOfQuestions, category, difficulty, type };
     alert("Submitted");
-    console.log(quizSettings);
+    submitQuizForm(quizSettings);
   }
 
   return (
