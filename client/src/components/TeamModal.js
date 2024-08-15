@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import "./TeamModal.css";
+import Button from "./Button";
 
 const TeamModal = ({ isOpen, member, onRequestClose }) => {
   return (
@@ -13,8 +14,8 @@ const TeamModal = ({ isOpen, member, onRequestClose }) => {
     >
       {member && (
         <>
-          <h2>{member.name}</h2>
-          <img src={member.photo} alt={member.name} className="member-image" />
+          <h2 className={`main-heading heading-small`}>{member.name}</h2>
+          <img src={member.photo} alt={member.name} className="modal-image" />
           <ul>
             {member.hobbies.map((hobby, index) => (
               <li key={index}>
@@ -22,7 +23,11 @@ const TeamModal = ({ isOpen, member, onRequestClose }) => {
               </li>
             ))}
           </ul>
-          <button onClick={onRequestClose}>Close</button>
+          <Button
+            text="Close"
+            className="button-position-modal"
+            onClick={onRequestClose}
+          />
         </>
       )}
     </Modal>

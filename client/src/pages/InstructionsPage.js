@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import "./InstructionsPage.css";
+import { quizActions } from "../components/quiz/quizReducer.js";
+import { apiActions } from "../components/quiz/apiReducer.js";
 
 import Navbar from "../components/Navbar";
 import BackgroundScreen from "../components/BackgroundScreen";
@@ -11,21 +13,19 @@ import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
 function InstructionsPage() {
-  const [quizData, setQuizData] = useState(null);
+  const dispatch = useDispatch();
 
-  const handleFormSubmit = async (settings) => {
-    const { numberOfQuestions, category, difficulty, type } = settings;
-    const url = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=${type}`;
-
-    try {
-      const response = await fetch(url);
-      const data = await response.json();
-      // console.log(data.results);
-      setQuizData(data.results);
-    } catch (error) {
-      console.log(`Error fectching Quiz data: ${error}`);
-    }
+  const performSearch = async () => {
+    dispatch(apiActions.trueIsFetching());
+    const result = await fetch("/api/search/");
+    const jsonResponse = await result.json();
+    dispatch(quizActions.saveQuestions(jsonResponse));
+    dispatch(apiActions.falseIsFetching());
   };
+
+  function handleFormSubmit() {
+    performSearch();
+  }
 
   return (
     <div className="container">

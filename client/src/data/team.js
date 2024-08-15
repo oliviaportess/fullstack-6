@@ -2,8 +2,9 @@ import jacquelynPhoto from "../images/jacquelyn.jpg";
 import oliviaPhoto from "../images/olivia.jpg";
 import paolaPhoto from "../images/paola.png";
 import phoebePhoto from "../images/phoebe.jpeg";
-import soojinPhoto from "../images/soojin.jpg";
+import soojinPhoto from "../images/soojin.png";
 import rayahPhoto from "../images/rayah.jpg";
+import avatar from "../images/avatar.png";
 
 const TEAM = [
   {
@@ -56,7 +57,7 @@ const TEAM = [
   },
   {
     name: "Rania",
-    photo: "",
+    photo: avatar,
     hobbies: [
       "Hey there! I'm someone who finds joy in the little things. Playing the piano is my way of unwinding, whether it’s getting lost in a classical piece or just jamming out to something fun.",
       "I'm a huge foodie. I love checking out new restaurants to find my next favorite dish. And when I'm not eating out, I'm probably in the kitchen trying to whip up something delicious myself.",
