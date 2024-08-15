@@ -7,12 +7,38 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//api call endpoint
+// api call endpoint
 const fetchQuestion = require("./api/fetchQuestion");
+const { default: axios } = require("axios");
+
 app.get("/api/search/", async (req, res) => {
   const allQuestions = await fetchQuestion.search();
   res.json(allQuestions);
 });
+
+// TRIED to get the form to call the API but not quite working...
+// app.get("api/search", async (req, res) => {
+//   const { amount, category, difficulty, type } = req.query;
+
+//   const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=${type}`;
+
+//   const response = await axios.get(url);
+//   const results = response.data.results;
+
+//   const allQuestions = results.map((result, index) => {
+//     const { question, correct_answer, incorrect_answers } = result;
+//     const answers = [correct_answer, ...incorrect_answers].sort();
+
+//     return {
+//       id: index + 1,
+//       question,
+//       answers,
+//       correctAnswer: correct_answer,
+//     };
+//   });
+
+//   res.json(allQuestions);
+// });
 
 //database endpoints
 app.use((req, res) => {
