@@ -1,0 +1,14 @@
+/* UserScoreDisplay.css */
+.user-score {
+    margin: 20px 0;
+    font-size: 20px;
+  }
+  
+  .user-score .score {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+
+  
