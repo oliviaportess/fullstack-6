@@ -17,6 +17,7 @@ function QuizPage() {
     (state) => state.quiz.activeQuestionIndex,
   );
   const QUESTIONS = useSelector((state) => state.quiz.questions);
+  const isFetching = useSelector((state) => state.api.isFetching);
 
   console.log(QUESTIONS);
 
@@ -66,7 +67,7 @@ function QuizPage() {
   }
 
   //need to stop it going here until the data has been fetched
-  if (quizIsComplete) {
+  if (quizIsComplete && !isFetching) {
     return (
       <div>
         <h2>Will go to score component</h2>
@@ -79,19 +80,22 @@ function QuizPage() {
       <Navbar />
       <div className="layout-container">
         <BackgroundScreen url={gridImage} />
-        <div className="content">
-          <MainHeading
-            title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
-          />
-          <Question />
-          <div className="answers-container">
-            <AnswerOptions key={activeQuestionIndex} />
+        {isFetching && <p>isFetching</p>};
+        {!isFetching && (
+          <div className="content">
+            <MainHeading
+              title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
+            />
+            <Question />
+            <div className="answers-container">
+              <AnswerOptions key={activeQuestionIndex} />
+            </div>
+            <Button
+              text={lastQuestion ? "Finish" : "Next"}
+              onClick={handleNextQuestion}
+            />
           </div>
-          <Button
-            text={lastQuestion ? "Finish" : "Next"}
-            onClick={handleNextQuestion}
-          />
-        </div>
+        )}
       </div>
     </div>
   );

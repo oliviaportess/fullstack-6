@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
+import { apiActions } from "../components/quiz/apiReducer.js";
 
 import Navbar from "../components/Navbar";
 import BackgroundScreen from "../components/BackgroundScreen";
@@ -14,9 +15,11 @@ function InstructionsPage() {
   const dispatch = useDispatch();
 
   const performSearch = async () => {
+    dispatch(apiActions.trueIsFetching());
     const result = await fetch("/api/search/");
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
+    dispatch(apiActions.falseIsFetching());
   };
 
   function handleClick() {
