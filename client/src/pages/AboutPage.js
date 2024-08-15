@@ -8,6 +8,7 @@ import Navbar from "../components/Navbar";
 import "./AboutPage.css";
 import gridImage from "../images/grid.png";
 import Button from "../components/Button";
+import { Link } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
@@ -48,6 +49,9 @@ const AboutPage = () => {
               <h2 className="yourName">{member.name}</h2>
             </div>
           ))}
+          <Link to="/">
+            <Button text="BACK TO HOME" className="button-position" />
+          </Link>
         </div>
 
         <TeamModal
@@ -55,7 +59,6 @@ const AboutPage = () => {
           member={selectedMember}
           onRequestClose={closeModal}
         />
-        <Button text="BACK TO HOME" className="button-position" />
       </div>
     </div>
   );
