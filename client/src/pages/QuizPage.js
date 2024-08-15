@@ -18,6 +18,7 @@ function QuizPage() {
   );
   const QUESTIONS = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
+  const score = useSelector((state) => state.quiz.score);
 
   console.log(QUESTIONS);
 
@@ -71,6 +72,7 @@ function QuizPage() {
     return (
       <div>
         <h2>Will go to score component</h2>
+        <p>{`Your score was ${score}`}</p>
       </div>
     );
   }

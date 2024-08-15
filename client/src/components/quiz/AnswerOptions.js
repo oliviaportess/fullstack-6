@@ -30,6 +30,7 @@ function AnswerOptions() {
     dispatch(quizActions.setSelectedAnswer(selectedAnswer));
     if (selectedAnswer === QUESTIONS[activeQuestionIndex].correctAnswer) {
       dispatch(quizActions.correctAnswerState());
+      dispatch(quizActions.incrementScore());
     } else {
       dispatch(quizActions.wrongAnswerState());
     }
