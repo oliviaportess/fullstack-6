@@ -1,6 +1,8 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
+import "./Question.css";
+
 function Question() {
   const activeQuestionIndex = useSelector(
     (state) => state.quiz.activeQuestionIndex,
@@ -9,7 +11,7 @@ function Question() {
 
   const question = QUESTIONS[activeQuestionIndex].question;
 
-  return <p>{question}</p>;
+  return <p className="question">{question}</p>;
 }
 
 export default Question;
