@@ -22,7 +22,9 @@ function LandingPage() {
   }
 
   function handleChange(event) {
-    setInputValue(event.target.value);
+    if (/^[a-zA-Z\s]*$/.test(event.target.value)) {
+      setInputValue(event.target.value);
+    }
   }
 
   return (
