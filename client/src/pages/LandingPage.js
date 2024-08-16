@@ -12,13 +12,14 @@ import gridImage from "../images/grid.png";
 function LandingPage() {
   const [playerName, setPlayerName] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
     const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
     setPlayerName(submittedName);
     setInputValue("");
-    // console.log(submittedName);
+    setIsSubmitted(true);
   }
 
   function handleChange(event) {
@@ -49,7 +50,14 @@ function LandingPage() {
               maxLength="20"
               required
             ></input>
-            <Button type="submit" text="Submit" className="grey" />
+            {!isSubmitted && (
+              <Button
+                type="submit"
+                text="Submit"
+                className="grey"
+                id="name-submit-button"
+              />
+            )}
           </form>
           <Link to="/instructions">
             <Button
