@@ -40,3 +40,15 @@
   align-items: center;
   gap: 6rem;
 }
+
+.message-container {
+  min-height: 50px;
+  margin-top: 50px;
+  font-size: 1.3rem;
+  color: #ff6363;
+  text-align: center;
+}
+
+.message-container.show {
+  opacity: 1;
+}
