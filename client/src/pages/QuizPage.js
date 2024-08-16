@@ -88,9 +88,11 @@ function QuizPage() {
             <MainHeading
               title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
             />
-            <Question />
-            <div className="answers-container">
-              <AnswerOptions key={activeQuestionIndex} />
+            <div className="layout">
+              <Question />
+              <div className="answers-container">
+                <AnswerOptions key={activeQuestionIndex} />
+              </div>
             </div>
             <Button
               text={lastQuestion ? "Finish" : "Next"}
