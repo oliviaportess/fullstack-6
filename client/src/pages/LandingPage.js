@@ -43,6 +43,9 @@ function LandingPage() {
               placeholder="Write your name"
               className="form-input-field"
               onChange={handleChange}
+              autoComplete="name"
+              maxLength="20"
+              required
             ></input>
             <Button type="submit" text="Submit" className="grey" />
           </form>
