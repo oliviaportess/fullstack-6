@@ -9,7 +9,10 @@ function Question() {
   );
   const QUESTIONS = useSelector((state) => state.quiz.questions);
 
-  const question = QUESTIONS[activeQuestionIndex].question;
+  const question =
+    QUESTIONS && QUESTIONS.length > 0 && QUESTIONS[activeQuestionIndex].question
+      ? QUESTIONS[activeQuestionIndex].question
+      : "Ooops... no question found.";
 
   return <p className="question">{question}</p>;
 }
