@@ -12,17 +12,47 @@ import gridImage from "../images/grid.png";
 function LandingPage() {
   const [playerName, setPlayerName] = useState("");
   const [inputValue, setInputValue] = useState("");
+  const [apiMessage, setApiMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
+
     const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
     setPlayerName(submittedName);
     setInputValue("");
     setIsSubmitted(true);
+    event.target.reset();
+
+    try {
+      const response = await fetch("http://localhost:3001/users", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name: submittedName }),
+      });
+
+      const json = await response.json();
+
+      if (response.status === 400) {
+        setApiMessage(json.message || json.error);
+        setPlayerName("");
+      } else if (response.status === 201) {
+        setApiMessage("");
+        setPlayerName(submittedName);
+      } else {
+        setApiMessage(json.error || "Unknown Error: Please try again later.");
+        setPlayerName("");
+      }
+    } catch (error) {
+      console.error("Error submitting name:", error);
+    }
   }
 
   function handleChange(event) {
+    setApiMessage("");
+    setIsSubmitted(true);
     if (/^[a-zA-Z\s]*$/.test(event.target.value)) {
       setInputValue(event.target.value);
     }
@@ -66,6 +96,9 @@ function LandingPage() {
               className="big-font"
             />
           </Link>
+        </div>
+        <div className={`message-container ${apiMessage ? "show" : ""}`}>
+          {apiMessage}
         </div>
       </div>
     </div>

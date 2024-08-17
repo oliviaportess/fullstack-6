@@ -1,11 +1,13 @@
 const express = require("express");
 const pool = require("./pool");
+const cors = require("cors");
 require("dotenv").config();
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
 // api call endpoint
 const fetchQuestion = require("./api/fetchQuestion");
@@ -41,9 +43,9 @@ app.get("/api/search/", async (req, res) => {
 // });
 
 //database endpoints
-app.use((req, res) => {
-  res.status(200).send("Hi");
-});
+// app.use((req, res) => {
+//   res.status(200).send("Hi");
+// });
 
 app.get("/users", async (req, res) => {
   try {
