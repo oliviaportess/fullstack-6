@@ -17,7 +17,7 @@ function QuizForm({ onSubmit }) {
       difficulty: difficulty === "any" ? "" : difficulty,
       type: type === "any" ? "" : type,
     };
-    alert("Submitted");
+    //alert("Submitted");
     // console.log(quizSettings);
     onSubmit(quizSettings);
   }
