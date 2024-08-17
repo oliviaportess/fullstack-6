@@ -3,10 +3,7 @@ import TEAM from "../data/team";
 import Modal from "react-modal";
 import TeamModal from "../components/TeamModal";
 import MainHeading from "../components/MainHeading";
-import BackgroundScreen from "../components/BackgroundScreen";
-import Navbar from "../components/Navbar";
 import "./AboutPage.css";
-import gridImage from "../images/grid.png";
 import Button from "../components/Button";
 import { Link } from "react-router-dom";
 
@@ -27,40 +24,36 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="container">
-      <Navbar />
-      <div className="layout-container">
-        <BackgroundScreen url={gridImage} />
-        <MainHeading title="About The Team" />
-        <div className="team-container">
-          {TEAM.map((member, index) => (
-            <div
-              key={index}
-              className="team-member"
-              onClick={() => openModal(member)}
-            >
-              <div className="image-container">
-                <img
-                  src={member.photo}
-                  alt={member.name}
-                  className="member-image"
-                />
-              </div>
-              <h2 className="yourName">{member.name}</h2>
+    <>
+      <MainHeading title="About The Team" />
+      <div className="team-container">
+        {TEAM.map((member, index) => (
+          <div
+            key={index}
+            className="team-member"
+            onClick={() => openModal(member)}
+          >
+            <div className="image-container">
+              <img
+                src={member.photo}
+                alt={member.name}
+                className="member-image"
+              />
             </div>
-          ))}
-          <Link to="/">
-            <Button text="BACK TO HOME" className="button-position" />
-          </Link>
-        </div>
-
-        <TeamModal
-          isOpen={modalIsOpen}
-          member={selectedMember}
-          onRequestClose={closeModal}
-        />
+            <h2 className="yourName">{member.name}</h2>
+          </div>
+        ))}
+        <Link to="/">
+          <Button text="BACK TO HOME" className="button-position" />
+        </Link>
       </div>
-    </div>
+
+      <TeamModal
+        isOpen={modalIsOpen}
+        member={selectedMember}
+        onRequestClose={closeModal}
+      />
+    </>
   );
 };
 
