@@ -3,9 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
 
-import Navbar from "../components/Navbar";
-import BackgroundScreen from "../components/BackgroundScreen";
-import gridImage from "../images/grid.png";
 import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
 import AnswerOptions from "../components/quiz/AnswerOptions";
@@ -78,30 +75,26 @@ function QuizPage() {
   }
 
   return (
-    <div className="container">
-      <Navbar />
-      <div className="layout-container">
-        <BackgroundScreen url={gridImage} />
-        {isFetching && <p>Fetching the quiz from the API...</p>}
-        {!isFetching && (
-          <div className="content">
-            <MainHeading
-              title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
-            />
-            <div className="layout">
-              <Question />
-              <div className="answers-container">
-                <AnswerOptions key={activeQuestionIndex} />
-              </div>
+    <>
+      {isFetching && <p>Fetching the quiz from the API...</p>}
+      {!isFetching && (
+        <div className="content">
+          <MainHeading
+            title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
+          />
+          <div className="layout">
+            <Question />
+            <div className="answers-container">
+              <AnswerOptions key={activeQuestionIndex} />
             </div>
-            <Button
-              text={lastQuestion ? "Finish" : "Next"}
-              onClick={handleNextQuestion}
-            />
           </div>
-        )}
-      </div>
-    </div>
+          <Button
+            text={lastQuestion ? "Finish" : "Next"}
+            onClick={handleNextQuestion}
+          />
+        </div>
+      )}
+    </>
   );
 }
 
