@@ -146,7 +146,7 @@ app.post("/scoreboard", async (req, res) => {
     res.status(500).json({ error: "Database error" });
   }
 });
-
+// eslint-disable-next-line
 app.use((error, req, res, next) => {
   console.log("Error:", error.stack);
   res.status(500).json({ error: "Internal Server Error" });
