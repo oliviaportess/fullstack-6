@@ -16,6 +16,7 @@ function InstructionsPage() {
 
   const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
+  const isWaiting = useSelector((state) => state.api.isWaiting);
 
   // const performSearch = async (quizSettings) => {
   const performSearch = async () => {
@@ -28,18 +29,20 @@ function InstructionsPage() {
 
     dispatch(quizActions.reset());
     dispatch(apiActions.trueIsFetching());
+    dispatch(apiActions.trueIsWaiting());
     // Change search params
     // const result = await fetch(`/api/search/?${query}`);
     const result = await fetch(`/api/search/`);
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
+    dispatch(apiActions.falseIsFetching());
     setTimeout(() => {
-      dispatch(apiActions.falseIsFetching());
+      dispatch(apiActions.falseIsWaiting());
     }, 5000);
   };
 
   function handleFormSubmit() {
-    if (isFetching) {
+    if (isWaiting) {
       return;
     }
     performSearch();
@@ -73,7 +76,7 @@ function InstructionsPage() {
             </ol>
           </div>
           <QuizForm
-            text={isFetching ? "Loading..." : "Submit"}
+            text={isWaiting ? "Loading..." : "Submit"}
             onSubmit={handleFormSubmit}
           />
         </div>

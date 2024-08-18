@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialApiState = {
   isFetching: false,
+  isWaiting: false,
 };
 
 const apiSlice = createSlice({
@@ -13,6 +14,12 @@ const apiSlice = createSlice({
     },
     falseIsFetching(state) {
       state.isFetching = false;
+    },
+    trueIsWaiting(state) {
+      state.isWaiting = true;
+    },
+    falseIsWaiting(state) {
+      state.isWaiting = false;
     },
   },
 });
