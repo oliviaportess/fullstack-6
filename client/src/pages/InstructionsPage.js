@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
@@ -13,6 +13,11 @@ import Button from "../components/Button";
 
 function InstructionsPage() {
   const dispatch = useDispatch();
+
+  const questions = useSelector((state) => state.quiz.questions);
+  const isFetching = useSelector((state) => state.api.isFetching);
+  const isWaiting = useSelector((state) => state.api.isWaiting);
+
   // const performSearch = async (quizSettings) => {
   const performSearch = async () => {
     // const query = new URLSearchParams({
@@ -22,16 +27,24 @@ function InstructionsPage() {
     //   type: quizSettings.type || "",
     // }).toString();
 
+    dispatch(quizActions.reset());
     dispatch(apiActions.trueIsFetching());
+    dispatch(apiActions.trueIsWaiting());
     // Change search params
     // const result = await fetch(`/api/search/?${query}`);
     const result = await fetch(`/api/search/`);
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
     dispatch(apiActions.falseIsFetching());
+    setTimeout(() => {
+      dispatch(apiActions.falseIsWaiting());
+    }, 5000);
   };
 
   function handleFormSubmit() {
+    if (isWaiting) {
+      return;
+    }
     performSearch();
   }
 
@@ -62,7 +75,10 @@ function InstructionsPage() {
               </li>
             </ol>
           </div>
-          <QuizForm onSubmit={handleFormSubmit} />
+          <QuizForm
+            text={isWaiting ? "Loading..." : "Submit"}
+            onSubmit={handleFormSubmit}
+          />
         </div>
       </div>
       <div className="nav-links">
@@ -70,7 +86,10 @@ function InstructionsPage() {
           <Button text="Back" className="grey" />
         </Link>
         <Link to="/quiz">
-          <Button text="Start Quiz" />
+          <Button
+            text="Start Quiz"
+            isDisabled={questions.length === 0 || isFetching}
+          />
         </Link>
       </div>
     </>

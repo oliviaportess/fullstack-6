@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import "./QuizForm.css";
 import Button from "../Button";
 
-function QuizForm({ onSubmit }) {
+function QuizForm({ text, onSubmit }) {
   const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
   const [category, setCategory] = useState("any");
   const [difficulty, setDifficulty] = useState("any");
@@ -101,7 +101,7 @@ function QuizForm({ onSubmit }) {
           <option value="boolean">True or False</option>
         </select>
       </div>
-      <Button type="submit" text="Submit" className="grey quiz-button" />
+      <Button type="submit" text={text} className="grey quiz-button" />
     </form>
   );
 }
