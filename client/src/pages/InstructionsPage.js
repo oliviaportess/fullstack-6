@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
@@ -13,6 +13,9 @@ import Button from "../components/Button";
 
 function InstructionsPage() {
   const dispatch = useDispatch();
+
+  const questions = useSelector((state) => state.quiz.questions);
+
   // const performSearch = async (quizSettings) => {
   const performSearch = async () => {
     // const query = new URLSearchParams({
@@ -70,7 +73,7 @@ function InstructionsPage() {
           <Button text="Back" className="grey" />
         </Link>
         <Link to="/quiz">
-          <Button text="Start Quiz" />
+          <Button text="Start Quiz" isDisabled={questions.length === 0} />
         </Link>
       </div>
     </>
