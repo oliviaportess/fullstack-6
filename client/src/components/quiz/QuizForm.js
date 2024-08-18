@@ -7,7 +7,11 @@ import { apiActions } from "./apiReducer.js";
 import "./QuizForm.css";
 import Button from "../Button";
 
+<<<<<<< HEAD
 function QuizForm() {
+=======
+function QuizForm({ text, onSubmit }) {
+>>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
   const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
   const [category, setCategory] = useState("any");
   const [difficulty, setDifficulty] = useState("any");
@@ -22,6 +26,7 @@ function QuizForm() {
       difficulty: difficulty === "any" ? "" : difficulty,
       type: type === "any" ? "" : type,
     };
+<<<<<<< HEAD
     alert("Submitted");
 
     try {
@@ -38,6 +43,11 @@ function QuizForm() {
     } catch (error) {
       console.log("Error:", error);
     }
+=======
+    //alert("Submitted");
+    // console.log(quizSettings);
+    onSubmit(quizSettings);
+>>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
   }
 
   return (
@@ -119,12 +129,16 @@ function QuizForm() {
           <option value="boolean">True or False</option>
         </select>
       </div>
+<<<<<<< HEAD
       <Button
         type="submit"
         text="Submit"
         className="grey quiz-button"
         onClick={handleSubmit}
       />
+=======
+      <Button type="submit" text={text} className="grey quiz-button" />
+>>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
     </form>
   );
 }

@@ -1,13 +1,10 @@
 import React from "react";
-//import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { quizActions } from "./quizReducer.js";
 import AnswerButton from "./AnswerButton";
-//import QUESTIONS from "../../data/questions.js";
 
 function AnswerOptions() {
-  //const shuffledAnswers = useRef();
   const dispatch = useDispatch();
   const activeQuestionIndex = useSelector(
     (state) => state.quiz.activeQuestionIndex,
@@ -15,15 +12,6 @@ function AnswerOptions() {
   const answerState = useSelector((state) => state.quiz.answerState);
   const selectedAnswer = useSelector((state) => state.quiz.selectedAnswer);
   const QUESTIONS = useSelector((state) => state.quiz.questions);
-
-  // if (!shuffledAnswers.current) {
-  //   shuffledAnswers.current = [
-  //     ...QUESTIONS[activeQuestionIndex].incorrect_answers,
-  //     QUESTIONS[activeQuestionIndex].correct_answer,
-  //   ];
-  //   shuffledAnswers.current.sort(() => Math.random() - 0.5);
-  //   // Returns a random positive or negative number for each comparison in the array so the sort method randomly sorts the array
-  // }
 
   function handleSelectAnswer(selectedAnswer) {
     dispatch(quizActions.addUserAnswer(selectedAnswer));

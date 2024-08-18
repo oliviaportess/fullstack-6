@@ -7,6 +7,7 @@ function Button(props) {
       className={`button-link ${props.className}`}
       type={props.type}
       onClick={props.onClick}
+      disabled={props.isDisabled}
     >
       <span className="blinking">{">"}</span> {props.text}
     </button>

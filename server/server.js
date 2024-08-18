@@ -13,6 +13,8 @@ app.use(cors());
 // api call endpoint
 // const fetchQuestion = require("./api/fetchQuestion");
 // const { default: axios } = require("axios");
+const fetchQuestion = require("./api/fetchQuestion");
+//const { default: axios } = require("axios");
 
 // app.get("/api/search/", async (req, res) => {
 //   const allQuestions = await fetchQuestion.search();
@@ -82,11 +84,11 @@ app.post("/api/searchWithInput", async (req, res) => {
 //   res.json(allQuestions);
 // });
 
-//database endpoints
-// app.use((req, res) => {
-//   res.status(200).send("Hi");
-// });
+app.use((req, res) => {
+  res.status(200).send("Hi");
+});
 
+//database endpoints
 app.get("/users", async (req, res) => {
   try {
     const sql = `
