@@ -15,6 +15,7 @@ function InstructionsPage() {
   const dispatch = useDispatch();
 
   const questions = useSelector((state) => state.quiz.questions);
+  const isFetching = useSelector((state) => state.api.isFetching);
 
   // const performSearch = async (quizSettings) => {
   const performSearch = async () => {
@@ -25,16 +26,22 @@ function InstructionsPage() {
     //   type: quizSettings.type || "",
     // }).toString();
 
+    dispatch(quizActions.reset());
     dispatch(apiActions.trueIsFetching());
     // Change search params
     // const result = await fetch(`/api/search/?${query}`);
     const result = await fetch(`/api/search/`);
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
-    dispatch(apiActions.falseIsFetching());
+    setTimeout(() => {
+      dispatch(apiActions.falseIsFetching());
+    }, 5000);
   };
 
   function handleFormSubmit() {
+    if (isFetching) {
+      return;
+    }
     performSearch();
   }
 
@@ -65,7 +72,10 @@ function InstructionsPage() {
               </li>
             </ol>
           </div>
-          <QuizForm onSubmit={handleFormSubmit} />
+          <QuizForm
+            text={isFetching ? "Loading..." : "Submit"}
+            onSubmit={handleFormSubmit}
+          />
         </div>
       </div>
       <div className="nav-links">
@@ -73,7 +83,10 @@ function InstructionsPage() {
           <Button text="Back" className="grey" />
         </Link>
         <Link to="/quiz">
-          <Button text="Start Quiz" isDisabled={questions.length === 0} />
+          <Button
+            text="Start Quiz"
+            isDisabled={questions.length === 0 || isFetching}
+          />
         </Link>
       </div>
     </>

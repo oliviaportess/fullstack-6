@@ -37,6 +37,14 @@ const quizSlice = createSlice({
     incrementScore(state) {
       state.score++;
     },
+    reset(state) {
+      state.activeQuestionIndex = 0;
+      state.userAnswers = [];
+      state.selectedAnswer = "";
+      state.answerState = "";
+      state.questions = [];
+      state.score = 0;
+    },
   },
 });
 
