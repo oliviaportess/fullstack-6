@@ -3,13 +3,14 @@ import { render } from "@testing-library/react";
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import quizReducer from "./components/quiz/quizReducer";
+import apiReducer from "./components/quiz/apiReducer";
 
 export function renderWithProviders(
   ui,
   {
     preloadedState = {},
     store = configureStore({
-      reducer: { quiz: quizReducer },
+      reducer: { quiz: quizReducer, api: apiReducer },
       preloadedState,
     }),
     ...renderOptions
