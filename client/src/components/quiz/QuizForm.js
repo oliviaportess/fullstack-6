@@ -1,15 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { quizActions } from "./quizReducer.js";
+import { apiActions } from "./apiReducer.js";
 
 import "./QuizForm.css";
 import Button from "../Button";
 
-function QuizForm({ onSubmit }) {
+function QuizForm() {
   const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
   const [category, setCategory] = useState("any");
   const [difficulty, setDifficulty] = useState("any");
   const [type, setType] = useState("any");
+  const dispatch = useDispatch();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const quizSettings = {
       numberOfQuestions,
@@ -18,12 +23,25 @@ function QuizForm({ onSubmit }) {
       type: type === "any" ? "" : type,
     };
     alert("Submitted");
-    // console.log(quizSettings);
-    onSubmit(quizSettings);
+
+    try {
+      const response = await fetch("/api/searchWithInput", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quizSettings }),
+      });
+      dispatch(apiActions.trueIsFetching());
+      const jsonResponse = await response.json();
+      dispatch(quizActions.saveQuestions(jsonResponse));
+      dispatch(apiActions.falseIsFetching());
+      console.log("Response from backend:", jsonResponse);
+    } catch (error) {
+      console.log("Error:", error);
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div id="quiz-form">
         <label htmlFor="quiz-amount" className="quiz-label">
           No. of Questions
@@ -101,7 +119,12 @@ function QuizForm({ onSubmit }) {
           <option value="boolean">True or False</option>
         </select>
       </div>
-      <Button type="submit" text="Submit" className="grey quiz-button" />
+      <Button
+        type="submit"
+        text="Submit"
+        className="grey quiz-button"
+        onClick={handleSubmit}
+      />
     </form>
   );
 }

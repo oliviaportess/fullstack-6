@@ -1,9 +1,9 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+// import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 
-import { quizActions } from "../components/quiz/quizReducer.js";
-import { apiActions } from "../components/quiz/apiReducer.js";
+// import { quizActions } from "../components/quiz/quizReducer.js";
+// import { apiActions } from "../components/quiz/apiReducer.js";
 
 import "./InstructionsPage.css";
 
@@ -15,9 +15,9 @@ import Button from "../components/Button";
 import gridImage from "../images/grid.png";
 
 function InstructionsPage() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   // const performSearch = async (quizSettings) => {
-  const performSearch = async () => {
+  /* const performSearch = async () => {
     // const query = new URLSearchParams({
     //   amount: quizSettings.numberOfQuestions,
     //   category: quizSettings.category || "",
@@ -32,11 +32,11 @@ function InstructionsPage() {
     const jsonResponse = await result.json();
     dispatch(quizActions.saveQuestions(jsonResponse));
     dispatch(apiActions.falseIsFetching());
-  };
+  };*/
 
-  function handleFormSubmit() {
-    performSearch();
-  }
+  // function handleFormSubmit() {
+  //   performSearch();
+  // }
 
   // perform search using quizSettings?
   // function handleFormSubmit(quizSettings) {
@@ -69,7 +69,7 @@ function InstructionsPage() {
                 </li>
               </ol>
             </div>
-            <QuizForm onSubmit={handleFormSubmit} />
+            <QuizForm />
           </div>
         </div>
         <div className="nav-links">
