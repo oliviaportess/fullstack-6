@@ -1,9 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
-// import { quizActions } from "../components/quiz/quizReducer.js";
-// import { apiActions } from "../components/quiz/apiReducer.js";
 
 import "./InstructionsPage.css";
 
@@ -12,46 +9,10 @@ import QuizForm from "../components/quiz/QuizForm";
 import Button from "../components/Button";
 
 function InstructionsPage() {
-  // const dispatch = useDispatch();
 
   const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
   const isWaiting = useSelector((state) => state.api.isWaiting);
-
-  // const performSearch = async (quizSettings) => {
-  /* const performSearch = async () => {
-    // const query = new URLSearchParams({
-    //   amount: quizSettings.numberOfQuestions,
-    //   category: quizSettings.category || "",
-    //   difficulty: quizSettings.difficulty || "",
-    //   type: quizSettings.type || "",
-    // }).toString();
-
-    dispatch(quizActions.reset());
-    dispatch(apiActions.trueIsFetching());
-    dispatch(apiActions.trueIsWaiting());
-    // Change search params
-    // const result = await fetch(`/api/search/?${query}`);
-    const result = await fetch(`/api/search/`);
-    const jsonResponse = await result.json();
-    dispatch(quizActions.saveQuestions(jsonResponse));
-    dispatch(apiActions.falseIsFetching());
-    setTimeout(() => {
-      dispatch(apiActions.falseIsWaiting());
-    }, 5000);
-  };
-
-  function handleFormSubmit() {
-    if (isWaiting) {
-      return;
-    }
-    performSearch();
-  }
-
-  // perform search using quizSettings?
-  // function handleFormSubmit(quizSettings) {
-  //   performSearch(quizSettings);
-  // }
 
   return (
     <>
@@ -75,9 +36,8 @@ function InstructionsPage() {
               </li>
             </ol>
           </div>
-          <QuizForm
+          <QuizForm 
             text={isWaiting ? "Loading..." : "Submit"}
-            onSubmit={handleFormSubmit}
           />
         </div>
       </div>

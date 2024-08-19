@@ -7,11 +7,7 @@ import { apiActions } from "./apiReducer.js";
 import "./QuizForm.css";
 import Button from "../Button";
 
-<<<<<<< HEAD
-function QuizForm() {
-=======
-function QuizForm({ text, onSubmit }) {
->>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
+function QuizForm({ text }) {
   const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
   const [category, setCategory] = useState("any");
   const [difficulty, setDifficulty] = useState("any");
@@ -26,8 +22,11 @@ function QuizForm({ text, onSubmit }) {
       difficulty: difficulty === "any" ? "" : difficulty,
       type: type === "any" ? "" : type,
     };
-<<<<<<< HEAD
-    alert("Submitted");
+    // alert("Submitted");
+
+    dispatch(quizActions.reset());
+    dispatch(apiActions.trueIsFetching());
+    dispatch(apiActions.trueIsWaiting());
 
     try {
       const response = await fetch("/api/searchWithInput", {
@@ -35,19 +34,19 @@ function QuizForm({ text, onSubmit }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quizSettings }),
       });
-      dispatch(apiActions.trueIsFetching());
       const jsonResponse = await response.json();
+      if (jsonResponse.length === 0)[ // Added this in as in case the api can't fulfil user's request
+        alert("Sorry, not enough questions in that category/difficulty. Please broaden search.")
+      ]
       dispatch(quizActions.saveQuestions(jsonResponse));
       dispatch(apiActions.falseIsFetching());
+      setTimeout(() => {
+      dispatch(apiActions.falseIsWaiting());
+    }, 5000);
       console.log("Response from backend:", jsonResponse);
     } catch (error) {
       console.log("Error:", error);
     }
-=======
-    //alert("Submitted");
-    // console.log(quizSettings);
-    onSubmit(quizSettings);
->>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
   }
 
   return (
@@ -129,16 +128,12 @@ function QuizForm({ text, onSubmit }) {
           <option value="boolean">True or False</option>
         </select>
       </div>
-<<<<<<< HEAD
       <Button
         type="submit"
-        text="Submit"
+        text={text}
         className="grey quiz-button"
         onClick={handleSubmit}
       />
-=======
-      <Button type="submit" text={text} className="grey quiz-button" />
->>>>>>> d2ae198b049752e7f243c7527a0fbe72d7964a83
     </form>
   );
 }
