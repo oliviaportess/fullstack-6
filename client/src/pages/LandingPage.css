@@ -45,8 +45,11 @@
   min-height: 50px;
   margin-top: 50px;
   font-size: 1.3rem;
-  color: #ff6363;
+  color: #fbe22a;
   text-align: center;
+  font-family: "Press Start 2P";
+  text-transform: capitalize;
+  font-size: 1.2rem;
 }
 
 .message-container.show {
