@@ -15,10 +15,9 @@ function LandingPage() {
   async function handleSubmit(event) {
     event.preventDefault();
 
-    const submittedName = inputValue.trim() === "" ? "Player" : inputValue;
+    const submittedName = inputValue.trim();
     setPlayerName(submittedName);
     setInputValue("");
-    setIsSubmitted(true);
     event.target.reset();
 
     try {
@@ -35,21 +34,24 @@ function LandingPage() {
       if (response.status === 400) {
         setApiMessage(json.message || json.error);
         setPlayerName("");
+        setIsSubmitted(false);
       } else if (response.status === 201) {
         setApiMessage("");
         setPlayerName(submittedName);
+        setIsSubmitted(true);
       } else {
         setApiMessage(json.error || "Unknown Error: Please try again later.");
         setPlayerName("");
+        setIsSubmitted(false);
       }
     } catch (error) {
       console.error("Error submitting name:", error);
+      setIsSubmitted(false);
     }
   }
 
   function handleChange(event) {
     setApiMessage("");
-    setIsSubmitted(true);
     if (/^[a-zA-Z\s]*$/.test(event.target.value)) {
       setInputValue(event.target.value);
     }

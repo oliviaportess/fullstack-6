@@ -84,10 +84,6 @@ app.post("/api/searchWithInput", async (req, res) => {
 //   res.json(allQuestions);
 // });
 
-app.use((req, res) => {
-  res.status(200).send("Hi");
-});
-
 //database endpoints
 app.get("/users", async (req, res) => {
   try {
@@ -130,7 +126,7 @@ app.post("/users", async (req, res) => {
 
   if (!name) {
     console.log("Missing name");
-    return res.status(400).json({ message: "Please include a name" });
+    return res.status(400).json({ message: "Please include a valid name" });
   }
 
   try {
@@ -193,10 +189,14 @@ app.post("/scoreboard", async (req, res) => {
   }
 });
 
-
-app.use((error, req, res) => {
+// eslint-disable-next-line
+app.use((error, req, res, next) => {
   console.log("Error:", error.stack);
   res.status(500).json({ error: "Internal Server Error" });
+});
+
+app.use((req, res) => {
+  res.status(404).send("Route not found");
 });
 
 app.listen(process.env.PORT, () => {
