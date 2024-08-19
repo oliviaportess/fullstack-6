@@ -2,7 +2,7 @@ const axios = require("axios");
 const he = require("he");
 
 const fetchQuestion = {
-    search: async (quizSettings) => {
+  search: async (quizSettings) => {
     const numberOfQuestions = quizSettings.numberOfQuestions;
     const category = quizSettings.category;
     const difficulty = quizSettings.difficulty;
