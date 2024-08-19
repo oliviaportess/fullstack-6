@@ -14,9 +14,7 @@ function LandingPage() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-
     const submittedName = inputValue.trim();
-    setPlayerName(submittedName);
     setInputValue("");
     event.target.reset();
 
@@ -40,7 +38,7 @@ function LandingPage() {
         setPlayerName(submittedName);
         setIsSubmitted(true);
       } else {
-        setApiMessage(json.error || "Unknown Error: Please try again later.");
+        setApiMessage(json.error || "Unknown Error: Please try again later");
         setPlayerName("");
         setIsSubmitted(false);
       }
@@ -54,6 +52,12 @@ function LandingPage() {
     setApiMessage("");
     if (/^[a-zA-Z\s]*$/.test(event.target.value)) {
       setInputValue(event.target.value);
+    }
+  }
+
+  function handleButtonClick() {
+    if (!isSubmitted) {
+      setApiMessage("You need a valid name to proceed");
     }
   }
 
@@ -85,11 +89,12 @@ function LandingPage() {
             />
           </form>
         )}
-        <Link to="/instructions">
+        <Link to={isSubmitted ? "/instructions" : "#"}>
           <Button
             text={`Let's get quizzing ${playerName}!`}
             type="link"
             className="big-font"
+            onClick={handleButtonClick}
           />
         </Link>
       </div>
