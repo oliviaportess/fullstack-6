@@ -2,6 +2,7 @@ const express = require("express");
 const pool = require("./pool");
 const cors = require("cors");
 require("dotenv").config();
+const he = require("he");
 
 const app = express();
 
@@ -10,12 +11,53 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
 // api call endpoint
+// const fetchQuestion = require("./api/fetchQuestion");
+// const { default: axios } = require("axios");
 const fetchQuestion = require("./api/fetchQuestion");
 //const { default: axios } = require("axios");
 
-app.get("/api/search/", async (req, res) => {
-  const allQuestions = await fetchQuestion.search();
-  res.json(allQuestions);
+// app.get("/api/search/", async (req, res) => {
+//   const allQuestions = await fetchQuestion.search();
+//   res.json(allQuestions);
+// });
+
+// post request to receive user input and execute the search
+app.post("/api/searchWithInput", async (req, res) => {
+  const { quizSettings } = req.body; // Extract the user input from the request body
+  console.log("Received input:", quizSettings);
+  const numberOfQuestions = quizSettings.numberOfQuestions;
+  const category = quizSettings.category;
+  const difficulty = quizSettings.difficulty;
+  const type = quizSettings.type;
+
+  try {
+    const apiUrl = `https://opentdb.com/api.php?amount=${numberOfQuestions}&category=${category}&difficulty=${difficulty}&type=${type}`;
+    const response = await fetch(apiUrl);
+    const triviaData = await response.json();
+    const allQuestions = [];
+    console.log("test 1");
+    for (let i = 0; i < triviaData.results.length; i++) {
+      const question = he.decode(triviaData.results[i].question);
+      const correctAnswer = he.decode(triviaData.results[i].correct_answer);
+      const answerOptions = [
+        correctAnswer, //using spread method to combine correct answer string and array of incorrect answers
+        ...triviaData.results[i].incorrect_answers,
+      ].sort(() => Math.random() - 0.5); //returns a random positive or negative number for each comparison in the array so the sort method randomly sorts the array
+      const answerOptionsDecoded = answerOptions.map((answer) =>
+        he.decode(answer),
+      );
+      allQuestions.push({
+        id: i + 1,
+        question: question,
+        answerOptions: answerOptionsDecoded,
+        correctAnswer: correctAnswer,
+      });
+    }
+    console.log(allQuestions);
+    res.json(allQuestions);
+  } catch (error) {
+    console.error("Error fetching trivia data:", error);
+  }
 });
 
 // TRIED to get the form to call the API but not quite working...
@@ -146,6 +188,7 @@ app.post("/scoreboard", async (req, res) => {
     res.status(500).json({ error: "Database error" });
   }
 });
+
 // eslint-disable-next-line
 app.use((error, req, res, next) => {
   console.log("Error:", error.stack);

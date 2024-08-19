@@ -1,15 +1,20 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { quizActions } from "./quizReducer.js";
+import { apiActions } from "./apiReducer.js";
 
 import "./QuizForm.css";
 import Button from "../Button";
 
-function QuizForm({ text, onSubmit }) {
+function QuizForm({ text }) {
   const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
   const [category, setCategory] = useState("any");
   const [difficulty, setDifficulty] = useState("any");
   const [type, setType] = useState("any");
+  const dispatch = useDispatch();
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     const quizSettings = {
       numberOfQuestions,
@@ -17,13 +22,35 @@ function QuizForm({ text, onSubmit }) {
       difficulty: difficulty === "any" ? "" : difficulty,
       type: type === "any" ? "" : type,
     };
-    //alert("Submitted");
-    // console.log(quizSettings);
-    onSubmit(quizSettings);
+    // alert("Submitted");
+
+    dispatch(quizActions.reset());
+    dispatch(apiActions.trueIsFetching());
+    dispatch(apiActions.trueIsWaiting());
+
+    try {
+      const response = await fetch("/api/searchWithInput", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ quizSettings }),
+      });
+      const jsonResponse = await response.json();
+      if (jsonResponse.length === 0)[ // Added this in as in case the api can't fulfil user's request
+        alert("Sorry, not enough questions in that category/difficulty. Please broaden search.")
+      ]
+      dispatch(quizActions.saveQuestions(jsonResponse));
+      dispatch(apiActions.falseIsFetching());
+      setTimeout(() => {
+      dispatch(apiActions.falseIsWaiting());
+    }, 5000);
+      console.log("Response from backend:", jsonResponse);
+    } catch (error) {
+      console.log("Error:", error);
+    }
   }
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <div id="quiz-form">
         <label htmlFor="quiz-amount" className="quiz-label">
           No. of Questions
@@ -101,7 +128,12 @@ function QuizForm({ text, onSubmit }) {
           <option value="boolean">True or False</option>
         </select>
       </div>
-      <Button type="submit" text={text} className="grey quiz-button" />
+      <Button
+        type="submit"
+        text={text}
+        className="grey quiz-button"
+        onClick={handleSubmit}
+      />
     </form>
   );
 }

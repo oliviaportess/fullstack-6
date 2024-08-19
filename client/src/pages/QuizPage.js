@@ -17,7 +17,7 @@ function QuizPage() {
   const isFetching = useSelector((state) => state.api.isFetching);
   const score = useSelector((state) => state.quiz.score);
 
-  console.log(QUESTIONS);
+  // console.log(QUESTIONS);
 
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
   const lastQuestion = activeQuestionIndex === QUESTIONS.length - 1;
