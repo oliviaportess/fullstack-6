@@ -9,7 +9,6 @@ import QuizForm from "../components/quiz/QuizForm";
 import Button from "../components/Button";
 
 function InstructionsPage() {
-
   const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
   const isWaiting = useSelector((state) => state.api.isWaiting);
@@ -36,9 +35,7 @@ function InstructionsPage() {
               </li>
             </ol>
           </div>
-          <QuizForm 
-            text={isWaiting ? "Loading..." : "Submit"}
-          />
+          <QuizForm text={isWaiting ? "Loading..." : "Submit"} />
         </div>
       </div>
       <div className="nav-links">

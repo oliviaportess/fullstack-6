@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { quizActions } from "./quizReducer.js";
 import { apiActions } from "./apiReducer.js";
@@ -14,8 +14,15 @@ function QuizForm({ text }) {
   const [type, setType] = useState("any");
   const dispatch = useDispatch();
 
+  const isWaiting = useSelector((state) => state.api.isWaiting);
+
   async function handleSubmit(event) {
     event.preventDefault();
+
+    if (isWaiting) {
+      return;
+    }
+
     const quizSettings = {
       numberOfQuestions,
       category: category === "any" ? "" : category,
@@ -25,24 +32,28 @@ function QuizForm({ text }) {
     // alert("Submitted");
 
     dispatch(quizActions.reset());
-    dispatch(apiActions.trueIsFetching());
-    dispatch(apiActions.trueIsWaiting());
 
     try {
+      dispatch(apiActions.trueIsFetching());
+      dispatch(apiActions.trueIsWaiting());
       const response = await fetch("/api/searchWithInput", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ quizSettings }),
       });
       const jsonResponse = await response.json();
-      if (jsonResponse.length === 0)[ // Added this in as in case the api can't fulfil user's request
-        alert("Sorry, not enough questions in that category/difficulty. Please broaden search.")
-      ]
+      if (jsonResponse.length === 0)
+        [
+          // Added this in as in case the api can't fulfil user's request
+          alert(
+            "Sorry, not enough questions in that category/difficulty. Please broaden search.",
+          ),
+        ];
       dispatch(quizActions.saveQuestions(jsonResponse));
       dispatch(apiActions.falseIsFetching());
       setTimeout(() => {
-      dispatch(apiActions.falseIsWaiting());
-    }, 5000);
+        dispatch(apiActions.falseIsWaiting());
+      }, 5000);
       console.log("Response from backend:", jsonResponse);
     } catch (error) {
       console.log("Error:", error);
