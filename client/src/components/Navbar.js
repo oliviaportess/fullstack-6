@@ -6,7 +6,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
   return (
-    <nav className="navbar">
+    <nav className="navbar" data-testid="navbar">
       <a href="./">
         <img src={draftLogo} alt="logo" />
       </a>

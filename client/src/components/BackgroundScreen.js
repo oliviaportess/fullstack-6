@@ -6,6 +6,7 @@ function BackgroundScreen(props) {
     <div
       className="background-screen"
       style={{ backgroundImage: `url(${props.url})` }}
+      data-testid="background-screen"
     ></div>
   );
 }

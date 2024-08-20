@@ -8,6 +8,7 @@ function Button(props) {
       type={props.type}
       onClick={props.onClick}
       disabled={props.isDisabled}
+      data-testid="button"
     >
       <span className="blinking">{">"}</span> {props.text}
     </button>
