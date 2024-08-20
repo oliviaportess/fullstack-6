@@ -6,6 +6,7 @@ import UserScoreDisplay from './UserScoreDisplay';
 import Navbar from "../components/Navbar"; // Import Navbar component
 import BackgroundScreen from "../components/BackgroundScreen"; // Import BackgroundScreen component
 import gridImage from "../images/grid.png"; // Import background image
+import Button from "../components/Button";
 
 const UserScore = ({ scores, userScore }) => {
   const score = useSelector((state) => state.quiz.score);
@@ -18,7 +19,7 @@ const UserScore = ({ scores, userScore }) => {
         <h2>Scoreboard</h2>
         <ScoreList scores={scores} />
         <UserScoreDisplay userScore={userScore} />
-        <button className="back-button">Back to Home</button>
+        <Button text="Back to Home"/>
       </div>
     </div>
   );
