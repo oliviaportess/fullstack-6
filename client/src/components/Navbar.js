@@ -5,15 +5,12 @@ import NeonLink from "./NeonLink";
 import "./Navbar.css";
 
 const Navbar = () => {
-  //arrow function is inputted by sfc
   return (
-    <nav className="navbar">
+    <nav className="navbar" data-testid="navbar">
       <a href="./">
         <img src={draftLogo} alt="logo" />
       </a>
       <NeonLink linkName="ABOUT" link="./ABOUT" />
-      <NeonLink linkName="SIGNUP" link="./SIGNUP" />
-      <NeonLink linkName="LOGIN" link="./LOGIN" />
     </nav>
   );
 };

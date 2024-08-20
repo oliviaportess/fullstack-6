@@ -1,0 +1,33 @@
+.instructions-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 54px 0 36px 0;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 160px;
+}
+
+.list-instructions {
+  list-style: decimal;
+  list-style-position: outside;
+  text-align: left;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 8px 0;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
+}

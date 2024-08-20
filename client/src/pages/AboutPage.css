@@ -5,35 +5,39 @@
   align-items: center;
   width: 80%;
   column-gap: 20px;
+  margin-top: 34px;
+  margin-bottom: 34px;
 }
 
 .team-member {
   flex-basis: 20%;
-  margin: 30px 0;
+  margin: 10px 0;
   text-align: center;
   cursor: pointer;
 }
 
 .yourName {
   font-size: 1.2rem;
-  margin-bottom: 8px;
+  margin: 8px 0;
   text-decoration: none;
 }
 
 .member-image {
-  width: 180px;
-  height: 180px;
+  width: 50%;
   object-fit: cover;
-  margin-bottom: 10px;
-  box-shadow: 8px 8px 20px #17072d;
+  box-shadow: 8px 8px 20px rgba(23, 7, 45, 0.5);
   border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.member-image:hover {
+  transform: scale(1.04);
 }
 
 .button-position {
   position: absolute;
   right: 320px;
-  bottom: 70px;
+  bottom: 90px;
   cursor: pointer;
   text-align: center;
-  z-index: 1;
 }

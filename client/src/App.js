@@ -6,25 +6,28 @@ import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import InstructionsPage from "./pages/InstructionsPage";
 import QuizPage from "./pages/QuizPage";
+import Navbar from "./components/Navbar";
+import BackgroundScreen from "./components/BackgroundScreen";
 
-// import Button from "./components/Button";
-// import MainHeading from "./components/MainHeading";
-// import BackgroundScreen from "./components/BackgroundScreen";
-// import gridImage from "./images/grid.png";
-// import DisplayTeam from "./components/Team";
-// import Navbar from "./components/Navbar";
+import gridImage from "./images/grid.png";
 
 function App() {
   return (
     <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<LandingPage />} />
-          <Route path="/about" element={<AboutPage />} />
-          <Route path="/instructions" element={<InstructionsPage />} />
-          <Route path="/quiz" element={<QuizPage />} />
-        </Routes>
-      </Router>
+      <div className="container">
+        <Navbar />
+        <div className="layout-container">
+          <BackgroundScreen url={gridImage} />
+          <Router>
+            <Routes>
+              <Route path="/" element={<LandingPage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/instructions" element={<InstructionsPage />} />
+              <Route path="/quiz" element={<QuizPage />} />
+            </Routes>
+          </Router>
+        </div>
+      </div>
     </div>
   );
 }

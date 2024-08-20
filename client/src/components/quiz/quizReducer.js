@@ -5,6 +5,8 @@ const initialQuizState = {
   userAnswers: [],
   selectedAnswer: "",
   answerState: "",
+  questions: [],
+  score: 0,
 };
 
 const quizSlice = createSlice({
@@ -28,6 +30,20 @@ const quizSlice = createSlice({
     },
     wrongAnswerState(state) {
       state.answerState = "wrong";
+    },
+    saveQuestions(state, action) {
+      state.questions = action.payload;
+    },
+    incrementScore(state) {
+      state.score++;
+    },
+    reset(state) {
+      state.activeQuestionIndex = 0;
+      state.userAnswers = [];
+      state.selectedAnswer = "";
+      state.answerState = "";
+      state.questions = [];
+      state.score = 0;
     },
   },
 });

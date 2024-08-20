@@ -1,34 +1,25 @@
 import React from "react";
-import { useRef } from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { quizActions } from "./quizReducer.js";
 import AnswerButton from "./AnswerButton";
-import QUESTIONS from "../../data/questions.js";
+import "./AnswerOptions.css";
 
 function AnswerOptions() {
-  const shuffledAnswers = useRef();
   const dispatch = useDispatch();
   const activeQuestionIndex = useSelector(
     (state) => state.quiz.activeQuestionIndex,
   );
   const answerState = useSelector((state) => state.quiz.answerState);
   const selectedAnswer = useSelector((state) => state.quiz.selectedAnswer);
-
-  if (!shuffledAnswers.current) {
-    shuffledAnswers.current = [
-      ...QUESTIONS[activeQuestionIndex].incorrect_answers,
-      QUESTIONS[activeQuestionIndex].correct_answer,
-    ];
-    shuffledAnswers.current.sort(() => Math.random() - 0.5);
-    // Returns a random positive or negative number for each comparison in the array so the sort method randomly sorts the array
-  }
+  const QUESTIONS = useSelector((state) => state.quiz.questions);
 
   function handleSelectAnswer(selectedAnswer) {
     dispatch(quizActions.addUserAnswer(selectedAnswer));
     dispatch(quizActions.setSelectedAnswer(selectedAnswer));
-    if (selectedAnswer === QUESTIONS[activeQuestionIndex].correct_answer) {
+    if (selectedAnswer === QUESTIONS[activeQuestionIndex].correctAnswer) {
       dispatch(quizActions.correctAnswerState());
+      dispatch(quizActions.incrementScore());
     } else {
       dispatch(quizActions.wrongAnswerState());
     }
@@ -36,7 +27,7 @@ function AnswerOptions() {
 
   return (
     <ul id="answers">
-      {shuffledAnswers.current.map((answer) => {
+      {QUESTIONS[activeQuestionIndex].answerOptions.map((answer) => {
         const isSelected = selectedAnswer === answer;
         let cssStyles = "";
 
