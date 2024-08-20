@@ -5,7 +5,6 @@ import NeonLink from "./NeonLink";
 import "./Navbar.css";
 
 const Navbar = () => {
-  //arrow function is inputted by sfc
   return (
     <nav className="navbar">
       <a href="./">
