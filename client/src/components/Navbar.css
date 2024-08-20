@@ -8,7 +8,7 @@ nav {
   flex-wrap: wrap;
 }
 
-nav :nth-last-child(2) {
+nav :last-child {
   margin-left: auto;
 }
 
@@ -16,12 +16,3 @@ nav img {
   height: 60px;
   border-radius: 0%;
 }
-
-/*
-  .RHSNav {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    max-width: 90%;
-    flex-wrap: wrap
-  }*/

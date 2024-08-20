@@ -12,8 +12,6 @@ const Navbar = () => {
         <img src={draftLogo} alt="logo" />
       </a>
       <NeonLink linkName="ABOUT" link="./ABOUT" />
-      <NeonLink linkName="SIGNUP" link="./SIGNUP" />
-      <NeonLink linkName="LOGIN" link="./LOGIN" />
     </nav>
   );
 };
