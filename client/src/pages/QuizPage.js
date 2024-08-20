@@ -8,6 +8,7 @@ import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
 import AnswerOptions from "../components/quiz/AnswerOptions";
 import Question from "../components/quiz/Question";
+import ProgressBar from "../components/ProgressBar.js";
 
 function QuizPage() {
   const dispatch = useDispatch();
@@ -75,6 +76,10 @@ function QuizPage() {
     );
   }
 
+  //calculation for percentage progress based on number of questions selected
+  const progressPercentage =
+    ((activeQuestionIndex + 1) / QUESTIONS.length) * 100;
+
   return (
     <>
       {isFetching && <p>Fetching the quiz from the API...</p>}
@@ -83,6 +88,7 @@ function QuizPage() {
           <MainHeading
             title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
           />
+          <ProgressBar progress={progressPercentage} />
           <div className="layout">
             <Question />
             <div className="answers-container">
