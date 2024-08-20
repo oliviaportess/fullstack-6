@@ -7,7 +7,7 @@ function AnswerButton({ onSelectAnswer, text, cssStyles, disabled }) {
     <button
       disabled={disabled}
       onClick={onSelectAnswer}
-      className={(".", cssStyles)}
+      className={`answer-button ${cssStyles}`}
     >
       {text}
     </button>

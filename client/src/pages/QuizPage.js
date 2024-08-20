@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
+import "./QuizPage.css";
 
 import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
@@ -88,10 +89,12 @@ function QuizPage() {
               <AnswerOptions key={activeQuestionIndex} />
             </div>
           </div>
-          <Button
-            text={lastQuestion ? "Finish" : "Next"}
-            onClick={handleNextQuestion}
-          />
+          <div className="quiz-link">
+            <Button
+              text={lastQuestion ? "Finish" : "Next"}
+              onClick={handleNextQuestion}
+            />
+          </div>
         </div>
       )}
     </>
