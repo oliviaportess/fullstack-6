@@ -11,6 +11,7 @@ const TeamModal = ({ isOpen, member, onRequestClose }) => {
       contentLabel="team member details"
       className="modal"
       overlayClassName="modal-overlay"
+      data-testid="team-modal"
     >
       {member && (
         <>
