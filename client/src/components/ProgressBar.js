@@ -5,7 +5,11 @@ import "./ProgressBar.css";
 const ProgressBar = ({ progress }) => {
   return (
     <div className="progress-bar-container">
-      <div className="progress-bar" style={{ width: `${progress}%` }} />
+      <div
+        className="progress-bar"
+        data-testid="progress-bar"
+        style={{ width: `${progress}%` }}
+      />
     </div>
   );
 };
