@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { quizActions } from "./quizReducer.js";
 import AnswerButton from "./AnswerButton";
+import "./AnswerOptions.css";
 
 function AnswerOptions() {
   const dispatch = useDispatch();
