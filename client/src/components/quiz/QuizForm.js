@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-
+import { quizFormActions } from "./quizFormReducer.js";
 import { quizActions } from "./quizReducer.js";
 import { apiActions } from "./apiReducer.js";
 
@@ -8,11 +8,34 @@ import "./QuizForm.css";
 import Button from "../Button";
 
 function QuizForm({ text }) {
-  const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
-  const [category, setCategory] = useState("any");
-  const [difficulty, setDifficulty] = useState("any");
-  const [type, setType] = useState("any");
+  const numberOfQuestions = useSelector(
+    (state) => state.quizForm.numberOfQuestions,
+  );
+  const category = useSelector((state) => state.quizForm.category);
+  const difficulty = useSelector((state) => state.quizForm.difficulty);
+  const type = useSelector((state) => state.quizForm.type);
   const dispatch = useDispatch();
+
+  // const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
+  // const [category, setCategory] = useState("any");
+  // const [difficulty, setDifficulty] = useState("any");
+  // const [type, setType] = useState("any");
+
+  const handleNumberChange = (event) => {
+    dispatch(quizFormActions.setNumberOfQuestions(event.target.value));
+  };
+
+  const handleCategoryChange = (event) => {
+    dispatch(quizFormActions.setCategory(event.target.value)); // Dispatch the action
+  };
+
+  const handleDifficultyChange = (event) => {
+    dispatch(quizFormActions.setDifficulty(event.target.value)); // Dispatch the action
+  };
+
+  const handleTypeChange = (event) => {
+    dispatch(quizFormActions.setType(event.target.value)); // Dispatch the action
+  };
 
   const isWaiting = useSelector((state) => state.api.isWaiting);
 
@@ -74,7 +97,7 @@ function QuizForm({ text }) {
           placeholder="10"
           className="quiz-form-input"
           value={numberOfQuestions}
-          onChange={(event) => setNumberOfQuestions(event.target.value)}
+          onChange={handleNumberChange}
         ></input>
         <label htmlFor="quiz-category" className="quiz-label">
           Category
@@ -83,7 +106,7 @@ function QuizForm({ text }) {
           id="quiz-category"
           className="quiz-form-input"
           value={category}
-          onChange={(event) => setCategory(event.target.value)}
+          onChange={handleCategoryChange}
         >
           <option value="any">Any Category</option>
           <option value="9">General Knowledge</option>
@@ -118,7 +141,7 @@ function QuizForm({ text }) {
           id="quiz-difficulty"
           className="quiz-form-input"
           value={difficulty}
-          onChange={(event) => setDifficulty(event.target.value)}
+          onChange={handleDifficultyChange}
         >
           <option value="any">Any Difficulty</option>
           <option value="easy">Easy</option>
@@ -132,7 +155,7 @@ function QuizForm({ text }) {
           id="quiz-type"
           className="quiz-form-input"
           value={type}
-          onChange={(event) => setType(event.target.value)}
+          onChange={handleTypeChange}
         >
           <option value="any">Any Type</option>
           <option value="multiple">Multiple Choice</option>
