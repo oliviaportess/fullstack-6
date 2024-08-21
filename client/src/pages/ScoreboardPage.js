@@ -1,28 +1,52 @@
-import React from 'react';
-import { useSelector } from "react-redux";
-import './UserScore.css';
-import ScoreList from './ScoreList';
-import UserScoreDisplay from './UserScoreDisplay';
-import Navbar from "../components/Navbar"; // Import Navbar component
-import BackgroundScreen from "../components/BackgroundScreen"; // Import BackgroundScreen component
-import gridImage from "../images/grid.png"; // Import background image
-import Button from "../components/Button";
 
-const UserScore = ({ scores, userScore }) => {
-  const score = useSelector((state) => state.quiz.score);
+import React from "react";
+import { Link } from "react-router-dom";
+
+import "./ScoreboardPage.css";
+
+import MainHeading from "../components/MainHeading";
+import Button from "../components/Button";
+import UserScoreDisplay from "../components/UserScoreDisplay";
+
+
+function ScoreboardPage() {
+  // Hardcoded user data
+  const users = [
+    { rank: 1, name: "User 4", score: 8 },
+    { rank: 2, name: "User 3", score: 7 },
+    { rank: 3, name: "User 1", score: 6 },
+    { rank: 4, name: "User 2", score: 5 },
+    { rank: 5, name: "User 6", score: 4 },
+    { rank: 6, name: "User 5", score: 3 },
+  ];
 
   return (
-    <div className="scoreboard-container">
-      <Navbar /> {/* Add the Navbar for consistency */}
-      <BackgroundScreen url={gridImage} /> {/* Add background styling */}
-      <div className="scoreboard-content">
-        <h2>Scoreboard</h2>
-        <ScoreList scores={scores} />
-        <UserScoreDisplay userScore={userScore} />
-        <Button text="Back to Home"/>
+    <>
+      <div className="content">
+        {/*<MainHeading title="Scoreboard" />*/}
+        <div className="layout">
+          <div className="score-display">
+          <MainHeading title="Scoreboard" />
+            {users.map((user) => (
+              
+              <div key={user.rank} className="score-item">
+                <span className="rank">{user.rank}.</span>
+                <span className="name">{user.name}</span>
+              </div>
+            ))}
+          </div>
+          <div className="your-score">
+            <UserScoreDisplay/>
+          </div>
+        </div>
       </div>
-    </div>
+      <div className="nav-links">
+      <Link to="/">
+          <Button text="BACK TO HOME" className="button-position" />
+        </Link>
+      </div>
+    </>
   );
-};
+}
 
-export default UserScore;
+export default ScoreboardPage;

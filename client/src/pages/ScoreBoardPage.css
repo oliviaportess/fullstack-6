@@ -1,30 +1,89 @@
-/* ScoreBoardPage.css */
-.scoreboard-container {
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  position: relative;
-  height: 100vh;
-  overflow: hidden;
+  justify-content: center;
+  margin: 54px 0 36px 0;
+  color: #fffffe;
 }
 
-.scoreboard-content {
-  background-color: rgba(78, 0, 163, 0.85); /* Apply semi-transparent background */
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+.layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 54px 0 36px 0;
+  
+  /*display: inline;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 54px 0 36px 0;
+  width: 48%;
+  horizontal-align: top;*/
+}
+
+/* Score display styling */
+.score-display {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  margin-right: 160px;
+  
+  /*display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  max-width: 300px;
+  margin-bottom: 36px;
+  font-size: 24px;*/
+}
+
+.score-item {
+  display: flex;
+  align-items: center;
+  margin: 8px 0;
+  font-size: 24px;
+}
+
+.rank {
+  margin-right: 10px;
+}
+
+.name {
+  margin-left: 10px;
+}
+
+/* Your score styling */
+.your-score {
+  list-style: decimal;
+  list-style-position: outside;
+  text-align: left;
+  font-family: "Inter";
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 8px 0;
+
+  /*margin-top: 20px;
+  font-size: 24px;
+  text-align: center;*/
+}
+
+.your-score .score-value {
+  font-size: 28px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+/* Navigation links styling */
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 60%;
   color: #ffea00;
-  z-index: 1; /* Ensures content appears above the background */
-  max-width: 400px;
-  margin-top: 5%;
-}
-
-.scoreboard-content h2{
-  margin: 0;
-  font-size: 28px; /* Adjust font size for consistency */
-  font-family: "Inter", sans-serif;
-  color: #ffffff; /* Change to white to match landing page */
 }
 
 .back-button {
@@ -32,7 +91,7 @@
   color: #4e00a3;
   padding: 10px 20px;
   border: none;
-  border-radius: 20px; /* Rounded corners for consistency */
+  border-radius: 20px;
   font-size: 16px;
   cursor: pointer;
   font-family: "Inter", sans-serif;
@@ -40,16 +99,4 @@
 
 .back-button:hover {
   background-color: #ffea66;
-}
-
-/* Ensure the BackgroundScreen image matches across both pages */
-.background-screen {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0; /* Set below other content */
-  opacity: 0.3; /* Optional: Adjust opacity for subtlety */
 }
