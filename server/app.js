@@ -9,11 +9,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 // serve static files in the build folder
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, "./public")));
 
 // enable Node.js to point to all of our URLs
 app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "../client/build", "index.html"));
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
 // post request to receive user input and fetch questions from api
