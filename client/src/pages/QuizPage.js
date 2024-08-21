@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 import { quizActions } from "../components/quiz/quizReducer.js";
 import "./QuizPage.css";
@@ -19,54 +20,22 @@ function QuizPage() {
   const isFetching = useSelector((state) => state.api.isFetching);
   const score = useSelector((state) => state.quiz.score);
 
-  // console.log(QUESTIONS);
-
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
   const lastQuestion = activeQuestionIndex === QUESTIONS.length - 1;
-  // const category = 9; //General Knowledge
-  // const difficulty = "easy"; // hard coded for now
-  // const url = `https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`;
-
-  // const { data: questions, loading, error } = useFetchedQuestions(url);
-  // // const [currentQuestion, setCurrentQuestion] = useState(questions);
-  // const [currentQuestionIndex] = useState(0);
-
-  // if (loading) {
-  //   return <div>Loading...</div>;
-  // }
-
-  // if (error) {
-  //   return <div>Error: {error.message}</div>;
-  // }
-
-  // // console.log(setCurrentQuestion(questions[0]));
-
-  // const currentQuestion = questions[currentQuestionIndex];
-  // const lastQuestion = questions[questions.length - 1];
-
-  // if (!currentQuestion) {
-  //   return <div>No questions available</div>;
-  // }
-
-  // const answers = [
-  //   currentQuestion.correct_answer,
-  //   ...currentQuestion.incorrect_answers,
-  // ].sort();
-
-  // // console.log(questions);
-  // // console.log(currentQuestion);
-  // // console.log(answers);
-
-  // function handleAnswerClick(answer) {
-  //   console.log(answer);
-  // }
 
   function handleNextQuestion() {
     dispatch(quizActions.incrementActiveQuestionIndex());
     dispatch(quizActions.unansweredAnswerState());
   }
 
-  //need to stop it going here until the data has been fetched
+  if (QUESTIONS.length === 0) {
+    return (
+      <>
+        <Navigate to="/" />
+      </>
+    );
+  }
+
   if (quizIsComplete && !isFetching) {
     return (
       <div>
