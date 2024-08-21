@@ -57,13 +57,13 @@ function QuizPage() {
           <MainHeading
             title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
           />
-          <ProgressBar progress={progressPercentage} />
           <div className="layout">
             <Question />
             <div className="answers-container">
               <AnswerOptions key={activeQuestionIndex} />
             </div>
           </div>
+          <ProgressBar progress={progressPercentage} />
           <div className="quiz-link">
             <Button
               text={lastQuestion ? "Finish" : "Next"}
