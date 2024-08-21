@@ -1,16 +1,12 @@
-/* UserScoreDisplay.css */
 .user-score {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center text horizontally */
-  justify-content: center; /* Center text vertically */
+  align-items: center;
+  justify-content: center; 
   max-width: 300px;
-
   margin-bottom: 1px;
-  /*color: #ffea00;*/
-  font-size: 2.25rem; /*24px;*/
-  text-align: center; /* Center text within the element */
-
+  font-size: 2.25rem;
+  text-align: center; 
   font-family: "Press Start 2P";
   text-transform: uppercase;
   background: linear-gradient(to bottom, #fbe22a, #fb822a);
@@ -18,21 +14,18 @@
   background-clip: text;
 }
 
-
-
-  
   .score {
     display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align text to the left */
+  align-items: flex-start; 
   justify-content: center;
   max-width: 300px;
   margin-top: 1px;
   margin-bottom: 2px;
   margin: 0;
   color: #ffffff;
-  font-size: 36px; /* Increase font size */
-  text-align: left; /* Align text to the left */
+  font-size: 36px; 
+  text-align: left; 
   font-family: 'Inter';
   font-weight: bold;
    }
