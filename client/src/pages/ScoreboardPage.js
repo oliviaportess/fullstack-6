@@ -23,7 +23,6 @@ function ScoreboardPage() {
   return (
     <>
       <div className="content">
-        {/*<MainHeading title="Scoreboard" />*/}
         <div className="layout">
           <div className="score-display">
           <MainHeading title="Scoreboard" />
