@@ -115,7 +115,7 @@ function QuizForm({ text }) {
           Difficulty
         </label>
         <select
-          id="quiz-category"
+          id="quiz-difficulty"
           className="quiz-form-input"
           value={difficulty}
           onChange={(event) => setDifficulty(event.target.value)}
