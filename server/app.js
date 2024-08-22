@@ -1,12 +1,20 @@
 const express = require("express");
 const pool = require("./pool");
 const cors = require("cors");
+const path = require("path");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
+// serve static files in the build folder
+app.use(express.static(path.join(__dirname, "./public")));
+
+// enable Node.js to point to all of our URLs
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
+});
 
 // post request to receive user input and fetch questions from api
 const fetchQuestion = require("./api/fetchQuestion");
@@ -130,10 +138,6 @@ app.post("/scoreboard", async (req, res) => {
 app.use((error, req, res, next) => {
   console.log("Error:", error.stack);
   res.status(500).json({ error: "Internal Server Error" });
-});
-
-app.use((req, res) => {
-  res.status(404).send("Route not found");
 });
 
 module.exports = app;
