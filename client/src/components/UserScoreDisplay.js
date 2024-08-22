@@ -1,16 +1,16 @@
 import React from "react";
-import "./UserScoreDisplay.css"; // Import the CSS specific to UserScoreDisplay
 import { useSelector } from "react-redux";
 
+import "./UserScoreDisplay.css";
+
 const UserScoreDisplay = () => {
-  const userScore = useSelector((state) => state.quiz.score)
-  const totalQuestions = useSelector((state) => state.quiz.activeQuestionIndex)
-  return (
-    <div className="user-score">
-      <p>Your Score</p>
-      <p className="score">{userScore}/{totalQuestions}</p>
-    </div>
-  );
+  const userScore = useSelector((state) => state.quiz.score);
+  const totalQuestions = useSelector((state) => state.quiz.activeQuestionIndex);
+
+  let userPercentage =
+    totalQuestions > 0 ? (userScore / totalQuestions) * 100 : 0;
+
+  return <p className="score">{userPercentage}%</p>;
 };
 
 export default UserScoreDisplay;

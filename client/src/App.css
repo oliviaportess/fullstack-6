@@ -9,10 +9,3 @@
   margin-bottom: 8%;
   position: relative;
 }
-
-.layout {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 6rem;
-}

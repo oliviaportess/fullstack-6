@@ -47,7 +47,7 @@ function QuizPage() {
           <MainHeading
             title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
           />
-          <div className="layout">
+          <div className="quiz-layout">
             <Question />
             <div className="answers-container">
               <AnswerOptions key={activeQuestionIndex} />
