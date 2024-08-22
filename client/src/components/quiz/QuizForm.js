@@ -26,15 +26,15 @@ function QuizForm({ text }) {
   };
 
   const handleCategoryChange = (event) => {
-    dispatch(quizFormActions.setCategory(event.target.value)); // Dispatch the action
+    dispatch(quizFormActions.setCategory(event.target.value));
   };
 
   const handleDifficultyChange = (event) => {
-    dispatch(quizFormActions.setDifficulty(event.target.value)); // Dispatch the action
+    dispatch(quizFormActions.setDifficulty(event.target.value));
   };
 
   const handleTypeChange = (event) => {
-    dispatch(quizFormActions.setType(event.target.value)); // Dispatch the action
+    dispatch(quizFormActions.setType(event.target.value));
   };
 
   const isWaiting = useSelector((state) => state.api.isWaiting);
