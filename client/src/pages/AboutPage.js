@@ -1,15 +1,23 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
 import TEAM from "../data/team";
+import { quizFormActions } from "../components/quiz/quizFormReducer";
+import "./AboutPage.css";
+
 import Modal from "react-modal";
 import TeamModal from "../components/TeamModal";
 import MainHeading from "../components/MainHeading";
-import "./AboutPage.css";
 import Button from "../components/Button";
-import { Link } from "react-router-dom";
 
 Modal.setAppElement("#root");
 
 const AboutPage = () => {
+  // Reset the background image
+  const dispatch = useDispatch();
+  dispatch(quizFormActions.reset());
+
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedMember, setSelectedMember] = useState(null);
 

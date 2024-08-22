@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { quizActions } from "../components/quiz/quizReducer";
+import { quizFormActions } from "../components/quiz/quizFormReducer";
 import "./LandingPage.css";
 
 import MainHeading from "../components/MainHeading";
@@ -16,6 +17,7 @@ function LandingPage() {
 
   const dispatch = useDispatch();
   dispatch(quizActions.reset());
+  dispatch(quizFormActions.reset());
 
   async function handleSubmit(event) {
     event.preventDefault();

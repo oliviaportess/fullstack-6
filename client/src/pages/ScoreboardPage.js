@@ -1,13 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
-import "./ScoreboardPage.css";
+// import "./ScoreboardPage.css";
+import { quizFormActions } from "../components/quiz/quizFormReducer";
 
 import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
 import UserScoreDisplay from "../components/UserScoreDisplay";
 
 function ScoreboardPage() {
+  // Reset the background image
+  const dispatch = useDispatch();
+  dispatch(quizFormActions.reset());
+
   // Hardcoded user data
   const users = [
     { rank: 1, name: "User 4", score: 8 },
