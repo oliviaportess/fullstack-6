@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { useSelector } from "react-redux";
 import ProgressBar from "./ProgressBar";
 
@@ -37,13 +37,11 @@ describe("ProgressBar Component", () => {
 
     const expectedProgress = ((2 + 1) / 10) * 100;
 
-    const { getByTestId } = render(<ProgressBar />);
-
-    screen.debug();
+    const { getByTestId } = render(<ProgressBar progress={expectedProgress} />);
 
     const progressBar = getByTestId("progress-bar");
     console.log("ProgressBar width:", progressBar.style.width);
 
-    expect(progressBar.style.width).toBe(`${expectedProgress}`);
+    expect(progressBar.style.width).toBe(`${expectedProgress}%`);
   });
 });
