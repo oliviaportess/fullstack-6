@@ -1,7 +1,7 @@
 import React from "react";
 import Modal from "react-modal";
 import "./TeamModal.css";
-import Button from "./Button";
+import Button from "../Button/Button";
 
 const TeamModal = ({ isOpen, member, onRequestClose }) => {
   return (

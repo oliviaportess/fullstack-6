@@ -1,14 +1,19 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
 
 import "./App.css";
-import LandingPage from "./pages/LandingPage";
-import AboutPage from "./pages/AboutPage";
-import InstructionsPage from "./pages/InstructionsPage";
-import QuizPage from "./pages/QuizPage";
-import ScoreboardPage from "./pages/ScoreboardPage";
-import Navbar from "./components/Navbar";
-import BackgroundScreen from "./components/BackgroundScreen";
+import LandingPage from "./pages/LandingPage/LandingPage";
+import AboutPage from "./pages/AboutPage/AboutPage";
+import InstructionsPage from "./pages/InstructionsPage/InstructionsPage";
+import QuizPage from "./pages/QuizPage/QuizPage";
+import ScoreboardPage from "./pages/ScoreboardPage/ScoreboardPage";
+import Navbar from "./components/NavBar/Navbar";
+import BackgroundScreen from "./components/BackgroundScreen/BackgroundScreen";
 
 import gridImage from "./images/grid.png";
 
@@ -26,6 +31,8 @@ function App() {
               <Route path="/instructions" element={<InstructionsPage />} />
               <Route path="/quiz" element={<QuizPage />} />
               <Route path="/scoreboard" element={<ScoreboardPage />} />
+              {/* default redirect to home page */}
+              <Route path="*" element={<Navigate to="/" />} />
             </Routes>
           </Router>
         </div>

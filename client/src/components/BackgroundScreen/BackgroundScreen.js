@@ -3,12 +3,12 @@ import { useSelector } from "react-redux";
 
 import "./BackgroundScreen.css";
 
-import gridImage from "../images/grid.png";
-import generalImage from "../images/general_knowledge.png";
-import entertainmentImage from "../images/entertainment.png";
-import scienceImage from "../images/science.png";
-import artImage from "../images/art.png";
-import animalImage from "../images/animal.png";
+import gridImage from "../../images/grid.png";
+import generalImage from "../../images/general_knowledge.png";
+import entertainmentImage from "../../images/entertainment.png";
+import scienceImage from "../../images/science.png";
+import artImage from "../../images/art.png";
+import animalImage from "../../images/animal.png";
 
 function BackgroundScreen(props) {
   const category = useSelector((state) => state.quizForm.category);

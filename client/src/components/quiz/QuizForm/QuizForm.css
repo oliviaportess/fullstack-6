@@ -26,3 +26,15 @@
   margin-top: 8px;
   margin-bottom: 24px;
 }
+
+.error-container {
+  min-height: 50px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 0.75rem;
+  color: #fbe22a;
+  text-align: center;
+  font-family: "Press Start 2P";
+  text-transform: capitalize;
+  max-width: 600px;
+}

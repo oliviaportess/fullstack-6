@@ -1,11 +1,13 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { quizFormActions } from "./quizFormReducer.js";
-import { quizActions } from "./quizReducer.js";
-import { apiActions } from "./apiReducer.js";
+import { quizFormActions } from "./quizFormReducer";
+import { quizActions } from "../quizReducer";
+import { apiActions } from "../apiReducer";
 
 import "./QuizForm.css";
-import Button from "../Button";
+import Button from "../../Button/Button";
+
+let apiMessage;
 
 function QuizForm({ text }) {
   const numberOfQuestions = useSelector(
@@ -15,11 +17,6 @@ function QuizForm({ text }) {
   const difficulty = useSelector((state) => state.quizForm.difficulty);
   const type = useSelector((state) => state.quizForm.type);
   const dispatch = useDispatch();
-
-  // const [numberOfQuestions, setNumberOfQuestions] = useState(10); // Default to 10 questions
-  // const [category, setCategory] = useState("any");
-  // const [difficulty, setDifficulty] = useState("any");
-  // const [type, setType] = useState("any");
 
   const handleNumberChange = (event) => {
     dispatch(quizFormActions.setNumberOfQuestions(event.target.value));
@@ -52,7 +49,6 @@ function QuizForm({ text }) {
       difficulty: difficulty === "any" ? "" : difficulty,
       type: type === "any" ? "" : type,
     };
-    // alert("Submitted");
 
     dispatch(quizActions.reset());
 
@@ -65,13 +61,11 @@ function QuizForm({ text }) {
         body: JSON.stringify({ quizSettings }),
       });
       const jsonResponse = await response.json();
-      if (jsonResponse.length === 0)
-        [
-          // Added this in as in case the api can't fulfil user's request
-          alert(
-            "Sorry, not enough questions in that category/difficulty. Please broaden search.",
-          ),
-        ];
+      if (jsonResponse.length === 0) {
+        // Added this in as in case the api can't fulfil user's request
+        apiMessage =
+          "Sorry, not enough questions in that category/difficulty. Please broaden search.";
+      }
       dispatch(quizActions.saveQuestions(jsonResponse));
       dispatch(apiActions.falseIsFetching());
       setTimeout(() => {
@@ -161,6 +155,9 @@ function QuizForm({ text }) {
           <option value="multiple">Multiple Choice</option>
           <option value="boolean">True or False</option>
         </select>
+        <div className={`error-container ${apiMessage ? "show" : ""}`}>
+          {apiMessage}
+        </div>
       </div>
       <Button
         type="submit"

@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 import "./InstructionsPage.css";
 
-import MainHeading from "../components/MainHeading";
-import QuizForm from "../components/quiz/QuizForm";
-import Button from "../components/Button";
+import MainHeading from "../../components/MainHeading/MainHeading";
+import QuizForm from "../../components/quiz/QuizForm/QuizForm";
+import Button from "../../components/Button/Button";
 
 function InstructionsPage() {
   const questions = useSelector((state) => state.quiz.questions);

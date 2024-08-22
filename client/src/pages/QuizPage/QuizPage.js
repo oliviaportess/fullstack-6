@@ -2,42 +2,42 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 
-import { quizActions } from "../components/quiz/quizReducer.js";
+import { quizActions } from "../../components/quiz/quizReducer";
 import "./QuizPage.css";
 
-import MainHeading from "../components/MainHeading";
-import Button from "../components/Button";
-import AnswerOptions from "../components/quiz/AnswerOptions";
-import Question from "../components/quiz/Question";
-import ProgressBar from "../components/ProgressBar.js";
+import MainHeading from "../../components/MainHeading/MainHeading";
+import Button from "../../components/Button/Button";
+import AnswerOptions from "../../components/quiz/AnswerOptions/AnswerOptions";
+import Question from "../../components/quiz/Question/Question";
+import ProgressBar from "../../components/quiz/ProgressBar/ProgressBar";
 
 function QuizPage() {
   const dispatch = useDispatch();
   const activeQuestionIndex = useSelector(
     (state) => state.quiz.activeQuestionIndex,
   );
-  const QUESTIONS = useSelector((state) => state.quiz.questions);
+  const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
 
-  const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
-  const lastQuestion = activeQuestionIndex === QUESTIONS.length - 1;
+  const quizIsComplete = activeQuestionIndex === questions.length;
+  const lastQuestion = activeQuestionIndex === questions.length - 1;
 
   function handleNextQuestion() {
     dispatch(quizActions.incrementActiveQuestionIndex());
     dispatch(quizActions.unansweredAnswerState());
   }
 
-  if (QUESTIONS.length === 0) {
+  if (questions.length === 0) {
     return <Navigate to="/" />;
   }
 
   if (quizIsComplete && !isFetching) {
-    return <Navigate to="/scoreboard" />;
+    return <Navigate to="/scoreboard" state={{ fromLandingPage: true }} />;
   }
 
   //calculation for percentage progress based on number of questions selected
   const progressPercentage =
-    ((activeQuestionIndex + 1) / QUESTIONS.length) * 100;
+    ((activeQuestionIndex + 1) / questions.length) * 100;
 
   return (
     <>
@@ -45,7 +45,7 @@ function QuizPage() {
       {!isFetching && (
         <div className="content">
           <MainHeading
-            title={`QUESTION ${activeQuestionIndex + 1}/${QUESTIONS.length}`}
+            title={`QUESTION ${activeQuestionIndex + 1}/${questions.length}`}
           />
           <div className="layout">
             <Question />

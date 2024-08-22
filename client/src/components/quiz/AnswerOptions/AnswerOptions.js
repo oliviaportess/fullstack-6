@@ -1,8 +1,8 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
-import { quizActions } from "./quizReducer.js";
-import AnswerButton from "./AnswerButton";
+import { quizActions } from "../quizReducer.js";
+import AnswerButton from "../AnswerButton/AnswerButton";
 import "./AnswerOptions.css";
 
 function AnswerOptions() {
@@ -12,12 +12,12 @@ function AnswerOptions() {
   );
   const answerState = useSelector((state) => state.quiz.answerState);
   const selectedAnswer = useSelector((state) => state.quiz.selectedAnswer);
-  const QUESTIONS = useSelector((state) => state.quiz.questions);
+  const questions = useSelector((state) => state.quiz.questions);
 
   function handleSelectAnswer(selectedAnswer) {
     dispatch(quizActions.addUserAnswer(selectedAnswer));
     dispatch(quizActions.setSelectedAnswer(selectedAnswer));
-    if (selectedAnswer === QUESTIONS[activeQuestionIndex].correctAnswer) {
+    if (selectedAnswer === questions[activeQuestionIndex].correctAnswer) {
       dispatch(quizActions.correctAnswerState());
       dispatch(quizActions.incrementScore());
     } else {
@@ -27,7 +27,7 @@ function AnswerOptions() {
 
   return (
     <ul id="answers">
-      {QUESTIONS[activeQuestionIndex].answerOptions.map((answer) => {
+      {questions[activeQuestionIndex].answerOptions.map((answer) => {
         const isSelected = selectedAnswer === answer;
         let cssStyles = "";
 

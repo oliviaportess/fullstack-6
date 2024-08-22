@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { quizActions } from "../components/quiz/quizReducer";
-import { quizFormActions } from "../components/quiz/quizFormReducer";
+import { quizActions } from "../../components/quiz/quizReducer";
+import { quizFormActions } from "../../components/quiz/QuizForm/quizFormReducer";
 import "./LandingPage.css";
 
-import MainHeading from "../components/MainHeading";
-import Button from "../components/Button";
+import MainHeading from "../../components/MainHeading/MainHeading";
+import Button from "../../components/Button/Button";
 
 function LandingPage() {
   const [playerName, setPlayerName] = useState("");

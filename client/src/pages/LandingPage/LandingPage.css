@@ -14,18 +14,17 @@
 
 .form-input-field {
   font-family: "Inter";
-  width: 48%;
+  width: 75%;
   height: 30px;
   border-radius: 20px;
   border: none;
   margin: 20px 0;
-  padding-left: 12px;
+  text-align: center;
 }
 
 .message-container {
   min-height: 50px;
   margin-top: 50px;
-  font-size: 1.3rem;
   color: #fbe22a;
   text-align: center;
   font-family: "Press Start 2P";

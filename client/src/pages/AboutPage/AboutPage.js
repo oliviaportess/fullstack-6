@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import TEAM from "../data/team";
-import { quizFormActions } from "../components/quiz/quizFormReducer";
+import TEAM from "../../data/team";
+import { quizFormActions } from "../../components/quiz/QuizForm/quizFormReducer";
 import "./AboutPage.css";
 
 import Modal from "react-modal";
-import TeamModal from "../components/TeamModal";
-import MainHeading from "../components/MainHeading";
-import Button from "../components/Button";
+import TeamModal from "../../components/TeamModal/TeamModal";
+import MainHeading from "../../components/MainHeading/MainHeading";
+import Button from "../../components/Button/Button";
 
 Modal.setAppElement("#root");
 

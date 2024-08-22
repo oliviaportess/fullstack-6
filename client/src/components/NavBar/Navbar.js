@@ -1,6 +1,6 @@
 import React from "react";
 
-import draftLogo from "../images/draftLogo.png";
+import draftLogo from "../../images/draftLogo.png";
 import NeonLink from "./NeonLink";
 import "./Navbar.css";
 
@@ -10,7 +10,7 @@ const Navbar = () => {
       <a href="./">
         <img src={draftLogo} alt="logo" />
       </a>
-      <NeonLink linkName="ABOUT" link="./ABOUT" />
+      <NeonLink linkName="ABOUT" link="./about" />
     </nav>
   );
 };
