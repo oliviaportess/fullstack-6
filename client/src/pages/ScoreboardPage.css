@@ -1,4 +1,18 @@
-.content {
+.scoreboard-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6rem;
+}
+
+.scoreboard-back-button {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  width: 60%;
+}
+
+/* .content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -76,4 +90,4 @@
 
 .back-button:hover {
   background-color: #ffea66;
-}
+} */

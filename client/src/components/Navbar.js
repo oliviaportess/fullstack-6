@@ -10,7 +10,7 @@ const Navbar = () => {
       <a href="./">
         <img src={draftLogo} alt="logo" />
       </a>
-      <NeonLink linkName="ABOUT" link="./ABOUT" />
+      <NeonLink linkName="ABOUT" link="./about" />
     </nav>
   );
 };

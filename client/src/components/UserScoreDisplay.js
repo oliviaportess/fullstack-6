@@ -1,5 +1,5 @@
 import React from "react";
-import "./UserScoreDisplay.css"; // Import the CSS specific to UserScoreDisplay
+import "./UserScoreDisplay.css";
 
 const UserScoreDisplay = ({ userScore }) => {
   return (

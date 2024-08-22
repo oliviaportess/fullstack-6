@@ -1,5 +1,5 @@
 import React from "react";
-import "./ScoreList.css"; // Import the CSS specific to ScoreList
+import "./ScoreList.css";
 
 const ScoreList = ({ scores }) => {
   return (
