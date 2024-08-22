@@ -6,6 +6,7 @@ import LandingPage from "./pages/LandingPage";
 import AboutPage from "./pages/AboutPage";
 import InstructionsPage from "./pages/InstructionsPage";
 import QuizPage from "./pages/QuizPage";
+import ScoreboardPage from "./pages/ScoreboardPage";
 import Navbar from "./components/Navbar";
 import BackgroundScreen from "./components/BackgroundScreen";
 
@@ -24,6 +25,7 @@ function App() {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/instructions" element={<InstructionsPage />} />
               <Route path="/quiz" element={<QuizPage />} />
+              <Route path="/scoreboard" element={<ScoreboardPage />} />
             </Routes>
           </Router>
         </div>
