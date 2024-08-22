@@ -1,3 +1,15 @@
+.score-item {
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.user-bold {
+  font-family: "Inter";
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
 /* ScoreList.css */
 /* .score-list {
   list-style-type: none;
