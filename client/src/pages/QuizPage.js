@@ -18,7 +18,6 @@ function QuizPage() {
   );
   const QUESTIONS = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
-  const score = useSelector((state) => state.quiz.score);
 
   const quizIsComplete = activeQuestionIndex === QUESTIONS.length;
   const lastQuestion = activeQuestionIndex === QUESTIONS.length - 1;
@@ -29,20 +28,11 @@ function QuizPage() {
   }
 
   if (QUESTIONS.length === 0) {
-    return (
-      <>
-        <Navigate to="/" />
-      </>
-    );
+    return <Navigate to="/" />;
   }
 
   if (quizIsComplete && !isFetching) {
-    return (
-      <div>
-        <h2>Will go to score component</h2>
-        <p>{`Your score was ${score}`}</p>
-      </div>
-    );
+    return <Navigate to="/scoreboard" />;
   }
 
   //calculation for percentage progress based on number of questions selected
