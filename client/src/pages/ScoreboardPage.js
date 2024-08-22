@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Link } from "react-router-dom";
 
@@ -7,7 +6,6 @@ import "./ScoreboardPage.css";
 import MainHeading from "../components/MainHeading";
 import Button from "../components/Button";
 import UserScoreDisplay from "../components/UserScoreDisplay";
-
 
 function ScoreboardPage() {
   // Hardcoded user data
@@ -25,9 +23,8 @@ function ScoreboardPage() {
       <div className="content">
         <div className="layout">
           <div className="score-display">
-          <MainHeading title="Scoreboard" />
+            <MainHeading title="Scoreboard" />
             {users.map((user) => (
-              
               <div key={user.rank} className="score-item">
                 <span className="rank">{user.rank}.</span>
                 <span className="name">{user.name}</span>
@@ -35,12 +32,12 @@ function ScoreboardPage() {
             ))}
           </div>
           <div className="your-score">
-            <UserScoreDisplay/>
+            <UserScoreDisplay />
           </div>
         </div>
       </div>
       <div className="nav-links">
-      <Link to="/">
+        <Link to="/">
           <Button text="BACK TO HOME" className="button-position" />
         </Link>
       </div>

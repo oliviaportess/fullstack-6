@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
-import Modal, { setAppElement } from "react-modal";
-import TeamModal from "../components/TeamModal";
+// import Modal, { setAppElement } from "react-modal";
+// import TeamModal from "../components/TeamModal";
 import { MemoryRouter } from "react-router-dom";
 import AboutPage from "./AboutPage";
 

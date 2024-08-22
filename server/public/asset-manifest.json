@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.7b9a3fda.css",
+    "main.js": "/static/js/main.aef4b645.js",
+    "static/media/rania.PNG": "/static/media/rania.c968c91058428b7404d0.PNG",
+    "static/media/soojin.png": "/static/media/soojin.9e4535deae2ca806e6f6.png",
+    "static/media/grid.png": "/static/media/grid.6ee1019df5b47b1332ec.png",
+    "static/media/paola.png": "/static/media/paola.0310b4b89a9b94a02a01.png",
+    "static/media/rayah.jpg": "/static/media/rayah.0e01ec94164195331b74.jpg",
+    "static/media/draftLogo.png": "/static/media/draftLogo.469f03850c61bfc96e2d.png",
+    "static/media/jacquelyn.jpg": "/static/media/jacquelyn.a5ed805c19646e579e1c.jpg",
+    "static/media/olivia.jpg": "/static/media/olivia.d4ddfd12add33a4f34ee.jpg",
+    "static/media/phoebe.jpeg": "/static/media/phoebe.e18b54092219e56c81e5.jpeg",
+    "index.html": "/index.html",
+    "main.7b9a3fda.css.map": "/static/css/main.7b9a3fda.css.map",
+    "main.aef4b645.js.map": "/static/js/main.aef4b645.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.7b9a3fda.css",
+    "static/js/main.aef4b645.js"
+  ]
+}
