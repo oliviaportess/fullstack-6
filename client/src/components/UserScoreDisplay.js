@@ -7,7 +7,6 @@ const UserScoreDisplay = () => {
   const totalQuestions = useSelector((state) => state.quiz.activeQuestionIndex);
   return (
     <div className="user-score">
-      <p>Your Score</p>
       <p className="score">
         {userScore}/{totalQuestions}
       </p>

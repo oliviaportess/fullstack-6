@@ -1,4 +1,10 @@
-.user-score {
+.score {
+  font-family: "Inter";
+  font-size: 2.25rem;
+  font-weight: bold;
+}
+
+/* .user-score {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,4 +34,4 @@
   text-align: left;
   font-family: "Inter";
   font-weight: bold;
-}
+} */
