@@ -1,37 +1,5 @@
 .score {
   font-family: "Inter";
   font-size: 2.25rem;
-  font-weight: bold;
+  font-weight: 700;
 }
-
-/* .user-score {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  max-width: 300px;
-  margin-bottom: 1px;
-  font-size: 2.25rem;
-  text-align: center;
-  font-family: "Press Start 2P";
-  text-transform: uppercase;
-  background: linear-gradient(to bottom, #fbe22a, #fb822a);
-  color: transparent;
-  background-clip: text;
-}
-
-.score {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  max-width: 300px;
-  margin-top: 1px;
-  margin-bottom: 2px;
-  margin: 0;
-  color: #ffffff;
-  font-size: 36px;
-  text-align: left;
-  font-family: "Inter";
-  font-weight: bold;
-} */

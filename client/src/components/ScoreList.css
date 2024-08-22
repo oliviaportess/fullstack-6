@@ -1,26 +1,27 @@
-.score-item {
-  display: flex;
-  align-items: center;
-  margin: 0;
+.score-list {
+  margin-top: 3rem;
 }
 
-.user-bold {
+.score-item {
   font-family: "Inter";
   font-size: 1.5rem;
   font-weight: 700;
+  list-style-position: outside;
+  margin: 1.5rem 0;
+  text-align: center;
 }
 
-/* ScoreList.css */
-/* .score-list {
-  list-style-type: none;
-  padding: 0;
-  margin: 1.25rem 0;
-}
-
-.score-list li {
+.user-score-layout {
   display: flex;
-  justify-content: space-between;
-  padding: 0.625rem 0;
-  font-size: 1.125rem;
-  border-bottom: 1px solid #ffea00;
-} */
+  justify-content: space-around;
+}
+
+.user-name {
+  font-weight: 400;
+}
+
+.user-result {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.2rem;
+}

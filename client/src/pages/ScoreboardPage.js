@@ -35,18 +35,6 @@ function ScoreboardPage() {
           <Button text="Back to Home" />
         </Link>
       </div>
-
-      {/* <div className="layout">
-        <div className="score-display">
-          <MainHeading title="Scoreboard" />
-          {users.map((user) => (
-            <div key={user.rank} className="score-item">
-              <span className="rank">{user.rank}.</span>
-              <span className="name">{user.name}</span>
-            </div>
-          ))}
-        </div>
-      </div> */}
     </>
   );
 }
