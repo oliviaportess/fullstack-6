@@ -1,14 +1,14 @@
 /* ScoreList.css */
 .score-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 20px 0;
-  }
-  
-  .score-list li {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    font-size: 18px;
-    border-bottom: 1px solid #ffea00;
-  }
+  list-style-type: none;
+  padding: 0;
+  margin: 1.25rem 0;
+}
+
+.score-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.625rem 0;
+  font-size: 1.125rem;
+  border-bottom: 1px solid #ffea00;
+}

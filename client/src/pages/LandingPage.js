@@ -88,12 +88,7 @@ function LandingPage() {
               maxLength="20"
               required
             ></input>
-            <Button
-              type="submit"
-              text="Submit"
-              className="grey"
-              id="name-submit-button"
-            />
+            <Button type="submit" text="Submit" className="grey" />
           </form>
         )}
         <Link to={isSubmitted ? "/instructions" : "#"}>
