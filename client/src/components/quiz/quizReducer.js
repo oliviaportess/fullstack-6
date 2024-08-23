@@ -7,6 +7,7 @@ const initialQuizState = {
   answerState: "",
   questions: [],
   score: 0,
+  name: "",
 };
 
 const quizSlice = createSlice({
@@ -36,6 +37,13 @@ const quizSlice = createSlice({
     },
     incrementScore(state) {
       state.score++;
+    },
+    setName(state, action) {
+      state.name = action.payload; // New reducer to update playerName
+    },
+    resetName(state) {
+      // separate action to reset name so it's not reset with others at quiz stage
+      state.name = "";
     },
     reset(state) {
       state.activeQuestionIndex = 0;
