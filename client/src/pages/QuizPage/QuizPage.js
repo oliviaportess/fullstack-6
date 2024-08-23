@@ -41,7 +41,7 @@ function QuizPage() {
         });
 
         const json = await response.json();
-        console.log(json);
+        console.log(json.message);
       } catch (error) {
         console.error("Error submitting score:", error);
       }

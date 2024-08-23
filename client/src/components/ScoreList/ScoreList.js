@@ -19,7 +19,7 @@ const ScoreList = () => {
   return (
     <ol className="score-list">
       {sortedUsers.map((user) => (
-        <li key={user.index} className="score-item">
+        <li key={user.id} className="score-item">
           {/* need to add user's name and score in here somehow */}
           <div className="user-score-layout">
             <span className="user-name">{user.name}</span>
