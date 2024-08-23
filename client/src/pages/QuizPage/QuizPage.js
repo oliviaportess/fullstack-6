@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Navigate } from "react-router-dom";
 
@@ -18,6 +18,8 @@ function QuizPage() {
   );
   const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
+  const userScore = useSelector((state) => state.quiz.score);
+  const name = useSelector((state) => state.quiz.name);
 
   const quizIsComplete = activeQuestionIndex === questions.length;
   const lastQuestion = activeQuestionIndex === questions.length - 1;
@@ -26,6 +28,33 @@ function QuizPage() {
     dispatch(quizActions.incrementActiveQuestionIndex());
     dispatch(quizActions.unansweredAnswerState());
   }
+
+  const sendScore = useCallback(
+    async function sendScore() {
+      try {
+        const response = await fetch("http://localhost:3001/scoreboard", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: name, score: userScore }),
+        });
+
+        const json = await response.json();
+        console.log(json);
+      } catch (error) {
+        console.error("Error submitting score:", error);
+      }
+    },
+    [name, userScore],
+  );
+
+  useEffect(() => {
+    // using useEffect hook to ensure the sendScore function is only ran once, not with every render
+    if (quizIsComplete && !isFetching) {
+      sendScore();
+    }
+  }, [isFetching, quizIsComplete, sendScore]);
 
   if (questions.length === 0) {
     return <Navigate to="/" />;
@@ -47,7 +76,7 @@ function QuizPage() {
           <MainHeading
             title={`QUESTION ${activeQuestionIndex + 1}/${questions.length}`}
           />
-          <div className="layout">
+          <div className="quiz-layout">
             <Question />
             <div className="answers-container">
               <AnswerOptions key={activeQuestionIndex} />

@@ -1,5 +1,12 @@
 # fullstack-6 Quiz App
 
+### Setup
+
+Follow the instructions linked below to get the app up and running!
+
+- [Server README](server/README.md)
+- [Client README](client/README.md)
+
 ### What is the concept/ what are you building?
 
 We are building a Pub Quiz app that allows users to generate quizzes, answer multiple-choice questions, and get their scores. The app will potentially include features such as different categories for quiz questions, a scoreboard, user login for tracking progress and some functionality to share the score.

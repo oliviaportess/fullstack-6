@@ -43,4 +43,9 @@
 
 .big-font {
   font-size: 1.75rem;
+  min-width: 20rem;
+  max-width: 40rem;
+  word-wrap: break-word;
+  white-space: normal;
+  line-height: 1.5;
 }

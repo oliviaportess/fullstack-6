@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import { quizActions } from "../../components/quiz/quizReducer";
 import { quizFormActions } from "../../components/quiz/QuizForm/quizFormReducer";
@@ -10,14 +10,19 @@ import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
 
 function LandingPage() {
-  const [playerName, setPlayerName] = useState("");
+  // const [playerName, setPlayerName] = useState(""); using redux instead
+  const name = useSelector((state) => state.quiz.name);
   const [inputValue, setInputValue] = useState("");
   const [apiMessage, setApiMessage] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const dispatch = useDispatch();
-  dispatch(quizActions.reset());
-  dispatch(quizFormActions.reset());
+  useEffect(() => {
+    // added useEffect hook to ensure dispatch call only occurs once
+    dispatch(quizActions.reset());
+    dispatch(quizActions.resetName());
+    dispatch(quizFormActions.reset());
+  }, [dispatch]);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -38,15 +43,15 @@ function LandingPage() {
 
       if (response.status === 400) {
         setApiMessage(json.message || json.error);
-        setPlayerName("");
+        dispatch(quizActions.setName(""));
         setIsSubmitted(false);
       } else if (response.status === 201) {
         setApiMessage("");
-        setPlayerName(submittedName);
+        dispatch(quizActions.setName(submittedName));
         setIsSubmitted(true);
       } else {
         setApiMessage(json.error || "Unknown Error: Please try again later");
-        setPlayerName("");
+        dispatch(quizActions.setName(""));
         setIsSubmitted(false);
       }
     } catch (error) {
@@ -88,17 +93,12 @@ function LandingPage() {
               maxLength="20"
               required
             ></input>
-            <Button
-              type="submit"
-              text="Submit"
-              className="grey"
-              id="name-submit-button"
-            />
+            <Button type="submit" text="Submit" className="grey" />
           </form>
         )}
         <Link to={isSubmitted ? "/instructions" : "#"}>
           <Button
-            text={`Let's get quizzing ${playerName}!`}
+            text={`Let's get quizzing ${name}!`}
             type="link"
             className="big-font"
             onClick={handleButtonClick}

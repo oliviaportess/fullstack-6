@@ -51,11 +51,12 @@ const AboutPage = () => {
             <h2 className="yourName">{member.name}</h2>
           </div>
         ))}
+      </div>
+      <div className="about-back-button">
         <Link to="/">
-          <Button text="BACK TO HOME" className="button-position" />
+          <Button text="BACK TO HOME" />
         </Link>
       </div>
-
       <TeamModal
         isOpen={modalIsOpen}
         member={selectedMember}
