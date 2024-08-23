@@ -6,7 +6,7 @@ VALUES
 ("Prince"),
 ("ET"),
 ("Pac Man"),
-("Arnold Schwarzenegger"),
+("Cher"),
 ("Mario"),
 ("Luigi");
 
