@@ -8,6 +8,7 @@ import "./LandingPage.css";
 
 import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
+import BrowserTab from "../../components/BrowserTab";
 
 function LandingPage() {
   // const [playerName, setPlayerName] = useState(""); using redux instead
@@ -75,6 +76,7 @@ function LandingPage() {
 
   return (
     <>
+      <BrowserTab title="Triviago" />
       <div className="content">
         <MainHeading title="Welcome to" />
         <MainHeading className="gradient-pink" title="Quiz App" />
