@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
 import "./ScoreList.css";
 
@@ -6,17 +6,18 @@ const ScoreList = () => {
   const [scoreboard, setScoreboard] = useState([]);
   const [loading, setLoading] = useState("true");
 
-  useEffect(() => {
-    async function fetchScores() {
-      try {
-        const response = await fetch("/scoreboard");
-        const jsonResponse = await response.json();
-        setScoreboard(jsonResponse);
-        setLoading(false);
-      } catch (error) {
-        console.error("Error fetching scoreboard data:", error);
-      }
+  const fetchScores = useCallback(async function fetchScores() {
+    try {
+      const response = await fetch("/scoreboard");
+      const jsonResponse = await response.json();
+      setScoreboard(jsonResponse);
+      setLoading(false);
+    } catch (error) {
+      console.error("Error fetching scoreboard data:", error);
     }
+  }, []);
+
+  useEffect(() => {
     fetchScores();
   }, []);
 
