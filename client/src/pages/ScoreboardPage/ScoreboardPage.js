@@ -10,6 +10,7 @@ import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
 import ScoreList from "../../components/ScoreList/ScoreList";
 import UserScoreDisplay from "../../components/UserScoreDisplay/UserScoreDisplay";
+import BrowserTab from "../../components/BrowserTab";
 
 function ScoreboardPage() {
   // Reset the background image
@@ -19,6 +20,7 @@ function ScoreboardPage() {
 
   return (
     <>
+      <BrowserTab title="Scoreboard" />
       <div className="content">
         <div className="scoreboard-layout">
           <div className="scoreboard-display">
