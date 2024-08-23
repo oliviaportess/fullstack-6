@@ -39,10 +39,10 @@ const quizSlice = createSlice({
       state.score++;
     },
     setName(state, action) {
-      state.name = action.payload; // New reducer to update playerName
+      state.name = action.payload;
     },
     resetName(state) {
-      // separate action to reset name so it's not reset with others at quiz stage
+      // separate action to reset name so it's not reset with others in the instructions page
       state.name = "";
     },
     reset(state) {
