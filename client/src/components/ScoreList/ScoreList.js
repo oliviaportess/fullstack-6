@@ -19,7 +19,7 @@ const ScoreList = () => {
 
   useEffect(() => {
     fetchScores();
-  }, []);
+  }, [fetchScores]);
 
   if (loading) return <p>Loading scoreboard...</p>;
 
