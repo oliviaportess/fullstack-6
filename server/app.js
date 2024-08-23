@@ -99,7 +99,6 @@ app.post("/scoreboard", async (req, res) => {
   const { name, score } = req.body;
 
   if (!name || score === null) {
-    // changed to null as otherwise scores of zero are treated as a missing score
     console.log("Missing name or score");
     return res.status(400).json({ message: "Please include a name and score" });
   }
