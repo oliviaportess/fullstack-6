@@ -11,11 +11,6 @@ app.use(cors());
 // serve static files in the build folder
 app.use(express.static(path.join(__dirname, "./public")));
 
-// enable Node.js to point to all of our URLs
-app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "./public", "index.html"));
-});
-
 // post request to receive user input and fetch questions from api
 const fetchQuestion = require("./api/fetchQuestion");
 app.post("/api/searchWithInput", async (req, res) => {
@@ -126,7 +121,7 @@ app.post("/scoreboard", async (req, res) => {
 
     res.status(201).json({
       id: results.insertId,
-      message: `A score of ${score} for ${name} has been added successfully`,
+      message: `A score of ${score}% for ${name} has been added successfully`,
     });
   } catch (error) {
     console.log("Error inserting score:", error.message);
@@ -138,6 +133,11 @@ app.post("/scoreboard", async (req, res) => {
 app.use((error, req, res, next) => {
   console.log("Error:", error.stack);
   res.status(500).json({ error: "Internal Server Error" });
+});
+
+// enable Node.js to point to all of our URLs
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "./public", "index.html"));
 });
 
 module.exports = app;

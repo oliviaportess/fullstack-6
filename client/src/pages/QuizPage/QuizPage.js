@@ -32,13 +32,14 @@ function QuizPage() {
 
   const sendScore = useCallback(
     async function sendScore() {
+      const scorePercentage = (userScore / questions.length) * 100;
       try {
         const response = await fetch("http://localhost:3001/scoreboard", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ name: name, score: userScore }),
+          body: JSON.stringify({ name: name, score: scorePercentage }),
         });
 
         const json = await response.json();
@@ -47,7 +48,7 @@ function QuizPage() {
         console.error("Error submitting score:", error);
       }
     },
-    [name, userScore],
+    [name, userScore, questions],
   );
 
   useEffect(() => {
