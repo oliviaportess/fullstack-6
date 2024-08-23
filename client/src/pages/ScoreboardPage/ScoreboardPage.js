@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { quizFormActions } from "../../components/quiz/QuizForm/quizFormReducer";
@@ -10,24 +10,29 @@ import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
 import ScoreList from "../../components/ScoreList/ScoreList";
 import UserScoreDisplay from "../../components/UserScoreDisplay/UserScoreDisplay";
+import BrowserTab from "../../components/BrowserTab";
 
 function ScoreboardPage() {
   // Reset the background image
   const dispatch = useDispatch();
   dispatch(quizFormActions.reset());
+  const { state } = useLocation();
 
   return (
     <>
+      <BrowserTab title="Scoreboard" />
       <div className="content">
         <div className="scoreboard-layout">
           <div className="scoreboard-display">
             <MainHeading title="Scoreboard" />
             <ScoreList />
           </div>
-          <div className="user-score">
-            <MainHeading title="Your Score" />
-            <UserScoreDisplay />
-          </div>
+          {state && state.fromLandingPage && (
+            <div className="user-score">
+              <MainHeading title="Your Score" />
+              <UserScoreDisplay />
+            </div>
+          )}
         </div>
       </div>
       <div className="scoreboard-back-button">

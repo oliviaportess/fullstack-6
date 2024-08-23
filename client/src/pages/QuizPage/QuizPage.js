@@ -10,6 +10,7 @@ import Button from "../../components/Button/Button";
 import AnswerOptions from "../../components/quiz/AnswerOptions/AnswerOptions";
 import Question from "../../components/quiz/Question/Question";
 import ProgressBar from "../../components/quiz/ProgressBar/ProgressBar";
+import BrowserTab from "../../components/BrowserTab";
 
 function QuizPage() {
   const dispatch = useDispatch();
@@ -41,7 +42,7 @@ function QuizPage() {
         });
 
         const json = await response.json();
-        console.log(json);
+        console.log(json.message);
       } catch (error) {
         console.error("Error submitting score:", error);
       }
@@ -70,6 +71,7 @@ function QuizPage() {
 
   return (
     <>
+      <BrowserTab title="Triviago" />
       {isFetching && <p>Fetching the quiz from the API...</p>}
       {!isFetching && (
         <div className="content">
