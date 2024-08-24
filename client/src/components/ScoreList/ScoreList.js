@@ -8,7 +8,7 @@ const ScoreList = () => {
 
   const fetchScores = useCallback(async function fetchScores() {
     try {
-      const response = await fetch("/scoreboard");
+      const response = await fetch("/scoreboardData");
       const jsonResponse = await response.json();
       setScoreboard(jsonResponse);
       setLoading(false);

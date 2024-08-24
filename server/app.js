@@ -41,7 +41,7 @@ app.get("/users", async (req, res) => {
   }
 });
 
-app.get("/scoreboard", async (req, res) => {
+app.get("/scoreboardData", async (req, res) => {
   try {
     const sql = `
       SELECT
