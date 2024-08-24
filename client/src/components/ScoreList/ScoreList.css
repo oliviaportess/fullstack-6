@@ -1,0 +1,28 @@
+.score-list {
+  margin-top: 3rem;
+}
+
+.score-item {
+  font-family: "Inter";
+  font-size: 1.5rem;
+  font-weight: 700;
+  list-style-position: outside;
+  margin: 1.5rem 0;
+  text-align: center;
+}
+
+.user-score-layout {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-name {
+  font-weight: 400;
+  width: 10rem;
+}
+
+.user-result {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1.2rem;
+}
