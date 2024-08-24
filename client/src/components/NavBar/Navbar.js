@@ -1,6 +1,5 @@
 import React from "react";
 
-// import draftLogo from "../../images/draftLogo.png";
 import NeonLink from "./NeonLink";
 import "./Navbar.css";
 
