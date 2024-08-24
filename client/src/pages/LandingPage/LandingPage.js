@@ -79,7 +79,7 @@ function LandingPage() {
       <BrowserTab title="Triviago" />
       <div className="content">
         <MainHeading title="Welcome to" />
-        <MainHeading className="gradient-pink" title="Quiz App" />
+        <MainHeading className="gradient-pink" title="Triviago" />
         {!isSubmitted && (
           <form id="name-form" onSubmit={handleSubmit}>
             <label htmlFor="player-name">
