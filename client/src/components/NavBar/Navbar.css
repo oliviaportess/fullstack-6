@@ -11,8 +11,3 @@ nav {
 nav :last-child {
   margin-left: auto;
 }
-
-nav img {
-  height: 3.75rem;
-  border-radius: 0%;
-}
