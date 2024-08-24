@@ -98,7 +98,10 @@ function LandingPage() {
             <Button type="submit" text="Submit" className="grey" />
           </form>
         )}
-        <Link to={isSubmitted ? "/instructions" : "#"}>
+        <Link
+          to={isSubmitted ? "/instructions" : "#"}
+          state={{ fromLandingPage: true }}
+        >
           <Button
             text={`Let's get quizzing ${name}!`}
             type="link"
