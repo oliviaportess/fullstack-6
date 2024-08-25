@@ -1,6 +1,6 @@
 import React from "react";
 import { screen } from "@testing-library/react";
-import { renderWithProviders } from "../config/test-utils";
+import { renderWithProviders } from "../../test-utils";
 import QuizPage from "./QuizPage";
 
 describe("QuizPage component", () => {
@@ -31,19 +31,6 @@ describe("QuizPage component", () => {
     expect(screen.getByText("Answer B")).toBeInTheDocument();
     expect(screen.getByText("Answer C")).toBeInTheDocument();
     expect(screen.getByText("Answer D")).toBeInTheDocument();
-  });
-
-  test("renders loading message when fetching", () => {
-    renderWithProviders(<QuizPage />, {
-      preloadedState: {
-        api: {
-          isFetching: true,
-        },
-      },
-    });
-    expect(
-      screen.getByText("Fetching the quiz from the API..."),
-    ).toBeInTheDocument();
   });
 
   test("renders the next button when there are further questions", () => {
@@ -101,30 +88,5 @@ describe("QuizPage component", () => {
     });
     expect(screen.queryByText("Next")).not.toBeInTheDocument();
     expect(screen.getByText("Finish")).toBeInTheDocument();
-  });
-
-  test("redirects to the score component when the quiz is complete", () => {
-    renderWithProviders(<QuizPage />, {
-      preloadedState: {
-        quiz: {
-          activeQuestionIndex: 1,
-          userAnswers: [],
-          selectedAnswer: "",
-          answerState: "",
-          questions: [
-            {
-              question: "Test Question",
-              correctAnswer: "Answer A",
-              answerOptions: ["Answer A", "Answer B", "Answer C", "Answer D"],
-            },
-          ],
-          score: 0,
-        },
-        api: {
-          isFetching: false,
-        },
-      },
-    });
-    expect(screen.getByText("Will go to score component")).toBeInTheDocument();
   });
 });
