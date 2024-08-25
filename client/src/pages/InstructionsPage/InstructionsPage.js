@@ -15,6 +15,10 @@ function InstructionsPage() {
   const isWaiting = useSelector((state) => state.api.isWaiting);
   const { state } = useLocation();
 
+  const [launchButtonColour, setLaunchButtonColour] = React.useState("grey");
+  const [submitButtonColour, setSubmitButtonColour] =
+    React.useState("button-link");
+
   if (state && state.fromLandingPage) {
     return (
       <>
@@ -40,7 +44,12 @@ function InstructionsPage() {
                 </li>
               </ol>
             </div>
-            <QuizForm text={isWaiting ? "Loading..." : "Submit"} />
+            <QuizForm
+              text={isWaiting ? "Loading..." : "Submit"}
+              submitButtonColour={submitButtonColour}
+              setSubmitButtonColour={setSubmitButtonColour}
+              setLaunchButtonColour={setLaunchButtonColour}
+            />
           </div>
         </div>
         <div className="nav-links">
@@ -51,13 +60,13 @@ function InstructionsPage() {
             <Button
               text="Start Quiz"
               isDisabled={questions.length === 0 || isFetching}
+              className={`${launchButtonColour}`}
             />
           </Link>
         </div>
       </>
     );
   }
-
   return <Navigate to="/" />;
 }
 

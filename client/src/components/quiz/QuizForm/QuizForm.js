@@ -9,7 +9,12 @@ import Button from "../../Button/Button";
 
 let apiMessage;
 
-function QuizForm({ text }) {
+function QuizForm({
+  text,
+  submitButtonColour,
+  setSubmitButtonColour,
+  setLaunchButtonColour,
+}) {
   const numberOfQuestions = useSelector(
     (state) => state.quizForm.numberOfQuestions,
   );
@@ -38,6 +43,8 @@ function QuizForm({ text }) {
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setSubmitButtonColour("grey");
+    setLaunchButtonColour("button-link");
 
     if (isWaiting) {
       return;
@@ -161,7 +168,7 @@ function QuizForm({ text }) {
       <Button
         type="submit"
         text={text}
-        className="grey quiz-button"
+        className={`${submitButtonColour}`}
         onClick={handleSubmit}
       />
     </form>
