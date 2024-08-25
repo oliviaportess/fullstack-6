@@ -102,7 +102,7 @@ describe("Server", () => {
     ];
     mockPool.query.mockResolvedValue([mockScoreboard]);
 
-    const res = await request(app).get("/scoreboard");
+    const res = await request(app).get("/scoreboardData");
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual(mockScoreboard);
@@ -111,7 +111,7 @@ describe("Server", () => {
   test("GET Scoreboard database error", async () => {
     mockPool.query.mockRejectedValue(new Error("Error"));
 
-    const res = await request(app).get("/scoreboard");
+    const res = await request(app).get("/scoreboardData");
 
     expect(res.statusCode).toEqual(500);
     expect(res.body).toEqual({ error: "Database error" });
@@ -158,6 +158,17 @@ describe("Server", () => {
     const res = await request(app)
       .post("/scoreboard")
       .send({ name: "User 4", score: 20 });
+
+    expect(res.statusCode).toEqual(201);
+  });
+
+  test("POST Scoreboard success with a score of zero", async () => {
+    mockPool.query.mockResolvedValueOnce([[{ user_id: 1, name: "User 1" }]]); // mock find user
+    mockPool.query.mockResolvedValueOnce([[{ insertId: 1 }]]); // mock insert score
+
+    const res = await request(app)
+      .post("/scoreboard")
+      .send({ name: "User 4", score: 0 });
 
     expect(res.statusCode).toEqual(201);
   });

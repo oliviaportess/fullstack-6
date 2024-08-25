@@ -1,4 +1,9 @@
-.neonLink {
+.neon-link {
+  display: flex;
+  align-items: center;
+}
+
+.neon-blue {
   font-size: 150%;
   font-weight: bold;
   text-decoration: none;
@@ -13,7 +18,7 @@
     0 0 200px #6dfcfe;
 }
 
-.neonLink:hover {
+.neon-blue:hover {
   color: #fff;
   text-shadow:
     0 0 7px #f700ff,
@@ -23,4 +28,36 @@
     0 0 92px #f700ff,
     0 0 102px #f700ff,
     0 0 200px #f700ff;
+}
+
+.neon-pink {
+  font-family: "Press Start 2P";
+  font-size: 1.7rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 1.25rem;
+  color: rgb(186, 251, 252);
+  text-shadow:
+    0 0 21px #f700ff,
+    0 0 42px #f700ff,
+    0 0 82px #f700ff,
+    0 0 92px #f700ff,
+    0 0 102px #f700ff,
+    0 0 200px #f700ff;
+}
+
+.neon-pink:hover {
+  color: #fff;
+  text-shadow:
+    0 0 7px #6dfcfe,
+    0 0 21px #6dfcfe,
+    0 0 42px #6dfcfe,
+    0 0 82px #6dfcfe,
+    0 0 92px #6dfcfe,
+    0 0 102px #6dfcfe,
+    0 0 200px #6dfcfe;
+}
+
+.icon-margin {
+  margin-right: 1.5rem;
 }
