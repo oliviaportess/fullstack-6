@@ -78,7 +78,6 @@ function QuizForm({
       setTimeout(() => {
         dispatch(apiActions.falseIsWaiting());
       }, 5000);
-      console.log("Response from backend:", jsonResponse);
     } catch (error) {
       console.log("Error:", error);
     }

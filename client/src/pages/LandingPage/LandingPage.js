@@ -8,6 +8,7 @@ import "./LandingPage.css";
 
 import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
+import BrowserTab from "../../components/BrowserTab";
 
 function LandingPage() {
   // const [playerName, setPlayerName] = useState(""); using redux instead
@@ -75,9 +76,10 @@ function LandingPage() {
 
   return (
     <>
+      <BrowserTab title="Triviago" />
       <div className="content">
         <MainHeading title="Welcome to" />
-        <MainHeading className="gradient-pink" title="Quiz App" />
+        <MainHeading className="gradient-pink" title="Triviago" />
         {!isSubmitted && (
           <form id="name-form" onSubmit={handleSubmit}>
             <label htmlFor="player-name">
@@ -96,7 +98,10 @@ function LandingPage() {
             <Button type="submit" text="Submit" className="grey" />
           </form>
         )}
-        <Link to={isSubmitted ? "/instructions" : "#"}>
+        <Link
+          to={isSubmitted ? "/instructions" : "#"}
+          state={{ fromLandingPage: true }}
+        >
           <Button
             text={`Let's get quizzing ${name}!`}
             type="link"

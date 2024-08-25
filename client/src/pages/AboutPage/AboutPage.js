@@ -10,6 +10,7 @@ import Modal from "react-modal";
 import TeamModal from "../../components/TeamModal/TeamModal";
 import MainHeading from "../../components/MainHeading/MainHeading";
 import Button from "../../components/Button/Button";
+import BrowserTab from "../../components/BrowserTab";
 
 Modal.setAppElement("#root");
 
@@ -33,6 +34,7 @@ const AboutPage = () => {
 
   return (
     <>
+      <BrowserTab title="About" />
       <MainHeading title="About The Team" />
       <div className="team-container">
         {TEAM.map((member, index) => (

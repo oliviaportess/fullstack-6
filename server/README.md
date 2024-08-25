@@ -1,10 +1,12 @@
 ## Setting up the database
 
-In the database_creation folder you will find two files to set up the database and tables. This needs to be completed before you run the API.
+In the database_creation folder you will find two files to set up a MySQL database and tables. This needs to be completed before you run the app.
 
 To create the database, run the create_database sql file.
 
 To create the tables, run the create_tables sql file.
+
+To add data into the tabls, run the insert_data sql file.
 
 ## .env file
 

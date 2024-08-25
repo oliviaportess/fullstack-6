@@ -1,17 +1,19 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 
 import "./InstructionsPage.css";
 
 import MainHeading from "../../components/MainHeading/MainHeading";
 import QuizForm from "../../components/quiz/QuizForm/QuizForm";
 import Button from "../../components/Button/Button";
+import BrowserTab from "../../components/BrowserTab";
 
 function InstructionsPage() {
   const questions = useSelector((state) => state.quiz.questions);
   const isFetching = useSelector((state) => state.api.isFetching);
   const isWaiting = useSelector((state) => state.api.isWaiting);
+  const { state } = useLocation();
 
   const [launchButtonColour, setLaunchButtonColour] = React.useState("grey");
   const [submitButtonColour, setSubmitButtonColour] =
