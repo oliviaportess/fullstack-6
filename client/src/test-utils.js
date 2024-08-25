@@ -4,6 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 import quizReducer from "./components/quiz/quizReducer";
 import apiReducer from "./components/quiz/apiReducer";
+import { BrowserRouter as Router } from "react-router-dom";
 
 export function renderWithProviders(
   ui,
@@ -17,7 +18,11 @@ export function renderWithProviders(
   } = {},
 ) {
   function Wrapper({ children }) {
-    return <Provider store={store}>{children}</Provider>;
+    return (
+      <Router>
+        <Provider store={store}>{children}</Provider>
+      </Router>
+    );
   }
   return { store, ...render(ui, { wrapper: Wrapper, ...renderOptions }) };
 }

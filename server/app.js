@@ -93,7 +93,7 @@ app.post("/users", async (req, res) => {
 app.post("/scoreboard", async (req, res) => {
   const { name, score } = req.body;
 
-  if (!name || score === null) {
+  if (!name || score === undefined) {
     console.log("Missing name or score");
     return res.status(400).json({ message: "Please include a name and score" });
   }

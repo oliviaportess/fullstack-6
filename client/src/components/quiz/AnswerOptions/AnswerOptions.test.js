@@ -1,6 +1,6 @@
 import React from "react";
 import { screen, fireEvent } from "@testing-library/react";
-import { renderWithProviders } from "../../config/test-utils";
+import { renderWithProviders } from "../../../test-utils";
 import AnswerOptions from "./AnswerOptions";
 
 describe("AnswerButton component", () => {
